@@ -43,6 +43,24 @@ return [
 			$cli->out("Updated name in package.json");
 		}
 
+		// Update .env
+		$input = $cli->confirm('Update APP_URL in .env?');
+		if ($input->confirmed()) {
+			if (!F::exists($projectRoot . "/.env")) {
+				$cli->out("Copy .env.example to .env");
+				F::copy($projectRoot . "/.env.example", $projectRoot . "/.env");
+			}
+			$domain = $cli->prompt('Please enter the domain used in development e.g. your valet domain:');
+			// Check if the user input starts with 'http://' or 'https://'
+			if (!preg_match('/^(http:\/\/|https:\/\/)/', $domain)) {
+				$domain = 'http://' . $domain; // Prepend 'http://' if missing
+			}
+			$envFile =  F::read($projectRoot . "/.env");
+			$envFile = preg_replace('/^APP_URL=.*$/m', "APP_URL=" . $domain, $envFile);
+			F::write($projectRoot . "/.env", $envFile);
+			$cli->out("Updated APP_URL in .env");
+		}
+
 		$cli->success('All done. Ready to roll!');
 	}
 ];
