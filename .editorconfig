@@ -10,10 +10,13 @@ trim_trailing_whitespace = true
 indent_size = 4
 trim_trailing_whitespace = false
 
-[site/templates/**.php]
+[backend/site/templates/**.php]
 indent_size = 2
 
-[site/snippets/**.php]
+[backend/site/plugins/**.php]
+indent_size = 2
+
+[backend/site/snippets/**.php]
 indent_size = 2
 
 [package.json,.{babelrc,editorconfig,eslintrc,lintstagedrc,stylelintrc}]
