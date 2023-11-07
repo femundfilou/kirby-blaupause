@@ -1,0 +1,24 @@
+name:
+  de: Zweispaltig
+  en: Two columns
+label: Layout
+icon: bars
+preview: fields
+wysiwyg: true
+tabs:
+  content:
+    label:
+      de: Inhalte
+      en: Content
+    type: fields
+    fields:
+      blocksleft:
+        extends: fields/blocks
+        width: 1/2
+        label: " "
+      blocksright:
+        extends: fields/blocks
+        width: 1/2
+        label: " "
+  style: layouts/tabs/style
+  alignment: layouts/tabs/alignment

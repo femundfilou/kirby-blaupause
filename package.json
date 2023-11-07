@@ -29,6 +29,9 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "laravel-vite-plugin": "^0.8.1"
+    "@swup/a11y-plugin": "^4.4.2",
+    "@swup/head-plugin": "^2.1.2",
+    "laravel-vite-plugin": "^0.8.1",
+    "swup": "^4.4.2"
   }
 }

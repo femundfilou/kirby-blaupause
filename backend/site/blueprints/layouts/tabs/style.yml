@@ -1,0 +1,17 @@
+label:
+  de: Stil
+  en: Style
+fields:
+  backgroundcolor:
+    label:
+      de: Hintergrundfarbe
+      en: Background color
+    type: select
+    default: default
+    options:
+      default: Standard
+  backgroundimage:
+    extends: fields/image
+    label:
+      de: Hintergrundbild
+      en: Background image

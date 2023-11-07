@@ -16,7 +16,10 @@
     "vlucas/phpdotenv": "^5.5",
     "lukaskleinschmidt/kirby-laravel-vite": "^2.1",
     "femundfilou/kirby-asset-manager": "^1.0@beta",
-    "tobimori/kirby-seo": "^0.4.0"
+    "tobimori/kirby-seo": "^0.4.0",
+    "getkirby/staticache": "^1.0",
+    "getkirby/cli": "^1.1",
+    "distantnative/retour-for-kirby": "^5.0"
   },
   "minimum-stability": "beta",
   "config": {

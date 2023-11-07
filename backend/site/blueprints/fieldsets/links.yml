@@ -1,0 +1,8 @@
+label:
+  de: Links
+  en: Links
+type: group
+open: false
+fieldsets:
+  - button
+  - jumpmark

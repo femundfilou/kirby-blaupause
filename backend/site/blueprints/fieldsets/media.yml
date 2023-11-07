@@ -1,0 +1,9 @@
+label:
+  de: Medien
+  en: Media
+type: group
+open: false
+fieldsets:
+  - image
+  - video
+  - box

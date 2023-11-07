@@ -24,7 +24,7 @@
 	if ($hero = $page->$herofield()->toObject()) :
 		snippet("hero/" . $herotype, ['hero' => $hero]);
 	endif;	?>
-	<main>
+	<main id="page" class="transition-fade">
 		<?= $slot ?>
 	</main>
 	<?php snippet('page/footer'); ?>

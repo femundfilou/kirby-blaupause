@@ -1,0 +1,10 @@
+label:
+   de: Layouts
+   en: Layouts
+type: blocks
+empty:
+  de: Keine Layouts hinzugefügt
+  en: No layouts yet
+fieldsets:
+  fullwidth: layouts/fullwidth
+  twocolumns: layouts/two-columns

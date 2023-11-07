@@ -1,0 +1,6 @@
+name: box
+preview: fields
+wysiwyg: true
+fields:
+  text:
+    type: text

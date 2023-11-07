@@ -1,0 +1,9 @@
+label:
+  de: Text
+  en: Text
+type: group
+fieldsets:
+  - heading
+  - text
+  - list
+  - quote

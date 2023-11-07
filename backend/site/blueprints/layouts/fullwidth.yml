@@ -1,0 +1,19 @@
+name:
+  de: Volle Breite
+  en: Fullwidth
+label: Layout
+icon: bars
+preview: fields
+wysiwyg: true
+tabs:
+  content:
+    label:
+      de: Inhalte
+      en: Content
+    type: fields
+    fields:
+      blocks:
+        extends: fields/blocks
+        label: " "
+  style: layouts/tabs/style
+  alignment: layouts/tabs/alignment

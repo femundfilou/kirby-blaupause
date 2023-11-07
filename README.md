@@ -14,9 +14,12 @@ This template is a starter for new projects, mainly developed out of personal ne
 - lukaskleinschmidt/kirby-laravel-vite
 - femundfilou/kirby-asset-manager
 - tobimori/kirby-seo
+- getkirby/staticache
+- getkirby/cli
+- distantnative/retour-for-kirby
 
 ## Custom folder setup
-This template uses a custom folder setup. The kirby installation is divided by two individual folders `public` and `backend` to keep kirby's internal files out of the domain root. Since we're often using pipelines to deploy website updates, the `storage` folder keeps all static things available, like `content`, `accounts`, `sessions`, `cache` and `license`, that don't always change on a website update.
+This template uses a custom folder setup. The kirby installation is divided by two individual folders `public` and `backend` to keep kirby's internal files out of the domain root. Since we're often using pipelines to deploy website updates, the `storage` folder keeps all static things available, like `content`, `accounts`, `sessions`, `logs` and `license`, that don't always change on a website update.
 
 The `frontend` is the last folder remaining and it's the home of all frontend source files. We're using Vite to build assets and a `manifest.json` to `public/build`, where they're consumed by kirby.
 

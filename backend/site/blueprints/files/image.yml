@@ -1,0 +1,12 @@
+label:
+  de: Bild-Datei
+  en: Image file
+accept:
+  extension: jpg, jpeg, png, webp, svg, gif
+fields:
+  alt:
+    type: text
+    width: 1/2
+  copyright:
+    type: text
+    width: 1/2

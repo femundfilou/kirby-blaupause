@@ -1,4 +1,6 @@
-title: Default Page
+title:
+  de: Standard Seite
+  en: Default page
 
 columns:
   main:
@@ -7,9 +9,7 @@ columns:
       fields:
         type: fields
         fields:
-          text:
-            type: textarea
-            size: huge
+          main: fields/layouts
   sidebar:
     width: 1/3
     sections:

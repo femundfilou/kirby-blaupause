@@ -1,0 +1,8 @@
+label:
+  de: Blöcke
+  en: Blocks
+type: blocks
+fieldsets:
+  text: fieldsets/text
+  links: fieldsets/links
+  media: fieldsets/media
