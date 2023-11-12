@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "concurrently -n svelte,vite 'pnpm:check' 'vite'",
     "build": "vite build; pnpm css:purge",
-    "css:purge": "purgecss --config ./purgecss.config.cjs",
+    "css:purge": "node scripts/purgecss.cjs",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "release": "release-it"
   },
@@ -21,6 +21,7 @@
     "@types/node": "^20.8.10",
     "browserslist": "^4.22.1",
     "concurrently": "^8.2.2",
+    "glob": "^10.3.10",
     "lightningcss": "^1.22.0",
     "purgecss": "^5.0.0",
     "release-it": "^16.2.1",

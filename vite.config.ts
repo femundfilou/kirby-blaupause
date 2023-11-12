@@ -5,7 +5,9 @@ import laravel from 'laravel-vite-plugin';
 import { browserslistToTargets } from 'lightningcss';
 import browserslist from "browserslist"
 import { homedir } from 'os'
+import { globSync } from 'glob';
 import fs from 'fs';
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -26,7 +28,11 @@ export default defineConfig(({ mode }) => {
     plugins: [
       svelte(),
       laravel({
-        input: ['frontend/index.ts', 'frontend/panel.css', 'frontend/styles/blocks/image.css'],
+        input: [
+          'frontend/index.ts',
+          'frontend/panel.css',
+          ...globSync('frontend/styles/blocks/**/!(_*).css'), // Add all CSS files in blocks folder, excluding those starting with '_'
+        ],
         refresh: [
           'backend/site/snippets/**',
           'backend/site/templates/**'
