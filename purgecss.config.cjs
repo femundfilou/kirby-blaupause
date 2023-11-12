@@ -6,7 +6,7 @@ module.exports = {
 		'./backend/site/**/*.php',
 		'./backend/site/**/**/*.php',
 	],
-	css: ["public/build/assets/*.css"],
+	css: ["public/build/assets/!(panel*).css"],
 	output: ["public/build/assets/"],
 	fontFace: true, // Remove unused @font-face
 	keyframes: true, // Remove unused @keyframes

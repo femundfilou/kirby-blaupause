@@ -27,6 +27,7 @@ lerna-debug.log*
 # ---------------
 node_modules
 public/hot
+public/icons.svg
 
 # Backend files
 # ---------------

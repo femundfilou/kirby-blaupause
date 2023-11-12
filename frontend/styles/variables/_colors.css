@@ -1,3 +1,7 @@
 :root {
-  --color-red: red;
+  --color-oxford: #000E29;
+  --color-white: #FBFBF9;
+  --color-blue: #025BFF;
+  --clea-base-color: var(--color-oxford);
+  --clea-base-color-invert: var(--color-white);
 }

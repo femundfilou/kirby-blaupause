@@ -73,3 +73,5 @@ panel.blocks.image.fields.alignment.label: Ausrichtung
 panel.blocks.image.fields.alignment.options.left.text: Linksbündig
 panel.blocks.image.fields.alignment.options.centered.text: Zentriert
 panel.blocks.image.fields.alignment.options.right.text: Rechtsbündig
+panel.blocks.button.name: Button
+panel.blocks.button.fields.style.label: Stil

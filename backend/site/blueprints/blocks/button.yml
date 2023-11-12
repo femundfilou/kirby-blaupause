@@ -1,0 +1,19 @@
+name: panel.blocks.button.name
+icon: url
+fields:
+  text:
+    type: text
+    required: true
+  link:
+    type: link
+    required: true
+  style:
+    label: panel.blocks.button.fields.style.label
+    type: toggles
+    default: pink
+    options:
+      pink: Pink
+      pink-outline: Pink (Outline)
+      highlight: Hellgrün
+      text: Text
+    required: true

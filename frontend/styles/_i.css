@@ -1,0 +1,13 @@
+.i {
+  display: inline-flex;
+  width: var(--size);
+  height: var(--size);
+  align-items: stretch;
+  justify-content: stretch;
+
+  & svg {
+    & use {
+      fill: transparent;
+    }
+  }
+}
