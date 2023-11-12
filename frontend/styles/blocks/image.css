@@ -1,0 +1,35 @@
+.block-type-image figure {
+  display: flex;
+  flex-direction: column;
+
+
+  &.has-text-right {
+    align-items: flex-end;
+  }
+
+  &.has-text-left {
+    align-items: flex-start;
+  }
+
+  &.has-text-centered {
+    align-items: center;
+  }
+
+  & picture {
+    aspect-ratio: var(--aspect-ratio);
+    width: 100%;
+    height: auto;
+    max-width: var(--max-width, 'none');
+  }
+
+  & figcaption {
+    max-width: var(--max-width, 'none');
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+    object-position: center;
+    object-fit: var(--object-fit, 'contain');
+  }
+}

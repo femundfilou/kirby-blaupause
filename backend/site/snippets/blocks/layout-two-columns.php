@@ -1,8 +1,8 @@
 <div class="columns">
 	<div class="column">
-		<?= $block->blocksleft()->toBlocks() ?>
+		<?php snippet('page/blocks', ['blocks' => $block->blocksleft()]); ?>
 	</div>
 	<div class=" column">
-		<?= $block->blocksright()->toBlocks() ?>
+		<?php snippet('page/blocks', ['blocks' => $block->blocksright()]); ?>
 	</div>
 </div>

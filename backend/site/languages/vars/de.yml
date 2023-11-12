@@ -68,3 +68,8 @@ panel.layouts.two-columns.name: Zweispaltig
 # Blocks
 panel.blocks.hero-default.name: Standard-Hero
 panel.blocks.hero-default.fields.heading.label: Seitentitel
+panel.blocks.image.fields.maxwidth.label: Maximale Breite
+panel.blocks.image.fields.alignment.label: Ausrichtung
+panel.blocks.image.fields.alignment.options.left.text: Linksbündig
+panel.blocks.image.fields.alignment.options.centered.text: Zentriert
+panel.blocks.image.fields.alignment.options.right.text: Rechtsbündig

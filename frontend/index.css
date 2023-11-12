@@ -1,19 +1,20 @@
 /*--------------------------------------------------------------
 # Variables
 --------------------------------------------------------------*/
-@import "styles/variables/colors.css";
-@import "styles/variables/breakpoints.css";
+@import "styles/variables/_colors.css";
+@import "styles/variables/_breakpoints.css";
 /*--------------------------------------------------------------
 # Settings & Utilities
 --------------------------------------------------------------*/
-@import "styles/accessibility.css";
-@import "styles/transitions.css";
+@import "styles/_accessibility.css";
+@import "styles/_transitions.css";
 /*--------------------------------------------------------------
 # Styles
 --------------------------------------------------------------*/
-@import "styles/menu.css";
+@import "styles/_menu.css";
+@import "styles/_blocks.css";
 /*--------------------------------------------------------------
 # Styles Page
 --------------------------------------------------------------*/
-@import "styles/page/header.css";
-@import "styles/page/footer.css";
+@import "styles/page/_header.css";
+@import "styles/page/_footer.css";

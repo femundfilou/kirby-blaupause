@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently -n svelte,vite 'pnpm:check' 'vite'",
-    "build": "vite build",
+    "build": "vite build; pnpm css:purge",
     "css:purge": "purgecss --config ./purgecss.config.cjs",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "release": "release-it"

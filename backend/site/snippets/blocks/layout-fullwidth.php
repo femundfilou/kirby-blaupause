@@ -1,5 +1,5 @@
 <div class="columns">
 	<div class="column">
-		<?= $block->blocks()->toBlocks() ?>
+		<?php snippet('page/blocks', ['blocks' => $block->blocks()]); ?>
 	</div>
 </div>

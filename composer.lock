@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3af22c216b25c8634dfc630ae7bd0e75",
+    "content-hash": "485c779ba415339c243098dbb1ca59d8",
     "packages": [
         {
             "name": "christian-riesen/base32",
@@ -291,6 +291,54 @@
                 "source": "https://github.com/femundfilou/kirby-asset-manager/tree/v1.0.0-beta.0"
             },
             "time": "2023-11-05T16:33:49+00:00"
+        },
+        {
+            "name": "femundfilou/kirby-image-snippet",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/femundfilou/kirby-image-snippet.git",
+                "reference": "fb498f0e07fee9a33f142e46edaa1fde58b4221b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/femundfilou/kirby-image-snippet/zipball/fb498f0e07fee9a33f142e46edaa1fde58b4221b",
+                "reference": "fb498f0e07fee9a33f142e46edaa1fde58b4221b",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/cms": "^3.6 || ^4.0",
+                "getkirby/composer-installer": "^1.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.8"
+            },
+            "type": "kirby-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Fefi\\Image\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Justus Kraft",
+                    "email": "hallo@justuskraft.de"
+                }
+            ],
+            "description": "Snippet + Helper Methods for handling images in Kirby",
+            "homepage": "https://github.com/femundfilou/kirby-image-snippet",
+            "keywords": [
+                "kirby-plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/femundfilou/kirby-image-snippet/issues",
+                "source": "https://github.com/femundfilou/kirby-image-snippet/tree/v0.1.0"
+            },
+            "time": "2023-08-10T12:03:29+00:00"
         },
         {
             "name": "filp/whoops",

@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       svelte(),
       laravel({
-        input: ['frontend/index.ts', 'frontend/panel.css'],
+        input: ['frontend/index.ts', 'frontend/panel.css', 'frontend/styles/blocks/image.css'],
         refresh: [
           'backend/site/snippets/**',
           'backend/site/templates/**'

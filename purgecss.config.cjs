@@ -13,7 +13,7 @@ module.exports = {
 	rejected: false, // Activate to see which css has been removed
 	variables: true, // Remove unused css variables
 	safelist: {
-		standard: [],
+		standard: [/^block/, /^layout/, /^\[data-/],
 		deep: [],
 		greedy: [],
 		keyframes: [],
