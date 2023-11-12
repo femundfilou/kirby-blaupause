@@ -4,7 +4,7 @@ import SwupHeadPlugin from "@swup/head-plugin"
 
 export const install = () => {
   new Swup({
-    containers: ['#page'],
+    containers: ['#page', '#page-header'],
     plugins: [new SwupA11yPlugin(), new SwupHeadPlugin({ persistTags: "style" })]
   });
 }

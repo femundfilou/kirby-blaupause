@@ -1,0 +1,4 @@
+label: panel.fieldsets.heroes.label
+type: group
+fieldsets:
+  - hero-default

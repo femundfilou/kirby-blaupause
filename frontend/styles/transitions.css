@@ -1,6 +1,6 @@
 /* Define a transition duration during page visits */
 html.is-changing .transition-fade {
-  transition: opacity 0.25s;
+  transition: opacity 0.2s;
   opacity: 1;
 }
 

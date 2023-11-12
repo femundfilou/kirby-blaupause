@@ -1,0 +1,5 @@
+label: panel.fields.hero.label
+type: blocks
+empty: panel.fields.hero.empty
+fieldsets:
+  heroes: fieldsets/heroes

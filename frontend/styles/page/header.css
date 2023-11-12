@@ -1,0 +1,50 @@
+#page-header {
+  position: relative;
+
+  & nav {
+    @media (--phone) {
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      background-color: var(--clea-base-color);
+      color: var(--clea-base-color-invert);
+      transform: translate(calc(100% + cssvar(header-spacing-x)), 100%);
+      opacity: 0;
+      padding: 2em;
+      display: flex;
+      box-shadow: 0 1em 5em rgba(0 0 0 / 0.4);
+
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  label.button {
+    position: relative;
+    z-index: 2;
+
+    span {
+      display: none;
+      font-size: 1.4em;
+      line-height: 1;
+      top: 0.06em;
+      position: relative;
+    }
+
+    &:has(input:checked) {
+      span {
+        display: inline-block !important;
+      }
+
+      &+nav {
+        transition: transform 0.2s ease-in, opacity 0.2s 0.1s ease-in;
+        transform: translateY(100%);
+        opacity: 1;
+      }
+    }
+  }
+}

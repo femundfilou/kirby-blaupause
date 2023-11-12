@@ -1,0 +1,21 @@
+icon: file
+label: panel.tabs.files.label
+sections:
+  images:
+    label: panel.sections.images.label
+    type: files
+    layout: cardlets
+    size: tiny
+    template: image
+    info: "© {{file.copyright.or('--')}}"
+    empty: panel.sections.images.empty
+  videos:
+    label: panel.sections.videos.label
+    type: files
+    template: video
+    empty: panel.sections.videos.empty
+  files:
+    label: panel.sections.files.label
+    type: files
+    template: default
+

@@ -1,0 +1,14 @@
+duplicate:
+  admin: true
+sort:
+  admin: true
+changeStatus:
+  admin: true
+changeSlug:
+  admin: true
+changeTitle:
+  admin: true
+delete:
+  admin: true
+update:
+  admin: true

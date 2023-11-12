@@ -1,0 +1,9 @@
+name: panel.blocks.hero-default.name
+icon: star
+preview: fields
+wysiwyg: true
+fields:
+  heading:
+    label: panel.blocks.hero-default.fields.heading.label
+    type: text
+    required: true

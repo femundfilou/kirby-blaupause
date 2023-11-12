@@ -7,5 +7,5 @@
  */
 ?>
 <?php snippet('layout/default', slots: true) ?>
-<?php snippet('page/layouts', ['layouts' => $page->maincontent()]); ?>
+<?php snippet('page/layouts', ['layouts' => $page->main()]); ?>
 <?php endsnippet(); ?>

@@ -1,2 +1,70 @@
 button.skip-menu: Zum Hauptinhalt springen
 button.menu: Menü
+
+# Panel
+
+# Site Tabs
+panel.site.tabs.dashboard.label: Dashboard
+# Site Sections
+panel.site.sections.mainmenu.label: Hauptnavigation
+panel.site.sections.pages.label: Veröffentlichte Seiten
+panel.site.sections.drafts.label: Entwürfe
+# Site Fields
+panel.site.fields.footermenu.label: Footer-Navigation
+panel.site.fields.privacypage.label: Datenschutz-Seite
+
+# Page
+panel.page.status.draft.label: Entwurf
+panel.page.status.unlisted.label: Veröffentlicht
+panel.page.status.listed.label: Veröffentlicht & im Menü
+
+# Templates
+panel.page.template.default.label: Standard-Seite
+
+# Tabs
+panel.tabs.content.label: Inhalte
+panel.tabs.files.label: Dateien
+
+# Sections
+panel.sections.images.label: Bilder
+panel.sections.images.empty: Keine Bilder
+panel.sections.files.label: Dateien
+panel.sections.videos.label: Videos
+panel.sections.videos.empty: Keine Videos
+
+# Fields
+panel.fields.blocks.label: Blöcke
+panel.fields.hero.label: Hero
+panel.fields.hero.empty: Kein Hero hinzugefügt.
+panel.fields.image.label: Bild
+panel.fields.image.empty: Kein Bild hinzugefügt.
+panel.fields.layouts.label: Layouts
+panel.fields.layouts.empty: Keine Layouts hinzugefügt.
+
+# Fieldsets
+panel.fieldsets.heroes.label: Heroes
+panel.fieldsets.links.label: Links
+panel.fieldsets.media.label: Medien
+panel.fieldsets.text.label: Text
+
+# Files
+panel.files.default.label: Datei
+panel.files.image.label: Bild
+panel.files.video.label: Video
+panel.files.image.fields.alt.label: Alt-Text
+panel.files.image.fields.copyright.label: Copyright
+
+# Layouts Tabs
+panel.layouts.tabs.alignment.label: Ausrichtung
+panel.layouts.tabs.alignment.fields.width.label: Breite
+panel.layouts.tabs.alignment.fields.width.options.default: Standard
+panel.layouts.tabs.style.label: Stil
+
+# Layouts
+panel.layouts.label: Layout
+panel.layouts.fullwidth.name: Volle Breite
+panel.layouts.two-columns.name: Zweispaltig
+
+# Blocks
+panel.blocks.hero-default.name: Standard-Hero
+panel.blocks.hero-default.fields.heading.label: Seitentitel

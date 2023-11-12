@@ -1,0 +1,10 @@
+@custom-media --phone (max-width: 30em);
+@custom-media --mobile (min-width: 30em);
+@custom-media --mobile-only ((min-width: 30em) and (max-width: 48em));
+@custom-media --tablet (min-width: 48em);
+@custom-media --tablet-only ((min-width: 48em) and (max-width: 64em));
+@custom-media --desktop (min-width: 64em);
+@custom-media --desktop-only ((min-width: 64em) and (max-width: 80em));
+@custom-media --widescreen (min-width: 80em);
+@custom-media --widescreen-only ((min-width: 80em) and (max-width: 120em));
+@custom-media --fullhd (min-width: 120em);

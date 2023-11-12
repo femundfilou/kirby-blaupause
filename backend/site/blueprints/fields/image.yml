@@ -1,7 +1,6 @@
-label:
-  de: Bild
-  en: Image
+label: panel.fields.image.label
 type: files
 uploads: image
+empty: panel.fields.image.empty
 multiple: false
 query: page.images.filterBy('template', 'image')

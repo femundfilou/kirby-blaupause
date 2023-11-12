@@ -1,6 +1,4 @@
-label:
-  de: Text
-  en: Text
+label: panel.fieldsets.text.label
 type: group
 fieldsets:
   - heading

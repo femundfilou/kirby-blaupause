@@ -1,15 +1,11 @@
-name:
-  de: Volle Breite
-  en: Fullwidth
-label: Layout
+name: panel.layouts.fullwidth.name
+label: panel.layouts.label
 icon: bars
 preview: fields
 wysiwyg: true
 tabs:
   content:
-    label:
-      de: Inhalte
-      en: Content
+    label: panel.tabs.content.label
     type: fields
     fields:
       blocks:

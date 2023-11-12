@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "concurrently -n svelte,vite 'pnpm:check' 'vite'",
     "build": "vite build",
+    "css:purge": "purgecss --config ./purgecss.config.cjs",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "release": "release-it"
   },
@@ -21,6 +22,7 @@
     "browserslist": "^4.22.1",
     "concurrently": "^8.2.2",
     "lightningcss": "^1.22.0",
+    "purgecss": "^5.0.0",
     "release-it": "^16.2.1",
     "svelte": "^4.0.5",
     "svelte-check": "^3.4.6",
@@ -31,6 +33,7 @@
   "dependencies": {
     "@swup/a11y-plugin": "^4.4.2",
     "@swup/head-plugin": "^2.1.2",
+    "cleacss": "link:../cleacss",
     "laravel-vite-plugin": "^0.8.1",
     "swup": "^4.4.2"
   }

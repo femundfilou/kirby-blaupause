@@ -18,15 +18,14 @@
 
 <body data-template="<?= $page->intendedTemplate() ?>">
 	<?php snippet('page/header') ?>
-	<?php
-	$herotype =  $page->choosehero()->value();
-	$herofield = 'hero' . $herotype;
-	if ($hero = $page->$herofield()->toObject()) :
-		snippet("hero/" . $herotype, ['hero' => $hero]);
-	endif;	?>
-	<main id="page" class="transition-fade">
+
+	<main id="page" class="transition-fade content">
+		<?php if ($page->hero()->isNotEmpty()) : ?>
+			<?php snippet('page/blocks', ['blocks' => $page->hero()]); ?>
+		<?php endif; ?>
 		<?= $slot ?>
 	</main>
+
 	<?php snippet('page/footer'); ?>
 	<?php snippet('seo/schemas'); ?>
 

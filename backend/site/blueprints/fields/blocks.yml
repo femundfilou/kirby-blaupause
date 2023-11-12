@@ -1,6 +1,4 @@
-label:
-  de: Blöcke
-  en: Blocks
+label: panel.fields.blocks.label
 type: blocks
 fieldsets:
   text: fieldsets/text

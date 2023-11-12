@@ -1,6 +1,4 @@
-label:
-  de: Medien
-  en: Media
+label: panel.fieldsets.media.label
 type: group
 open: false
 fieldsets:

@@ -17,6 +17,9 @@ export default defineConfig(({ mode }) => {
     css: {
       transformer: 'lightningcss',
       lightningcss: {
+        drafts: {
+          customMedia: true
+        },
         targets: browserslistToTargets(browserslist(["last 2 versions", ">= 0.4%", "not dead", "Firefox ESR", "not op_mini all", "not and_uc > 0"]))
       }
     },

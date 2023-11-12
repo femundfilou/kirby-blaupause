@@ -1,6 +1,4 @@
-label:
-  de: Links
-  en: Links
+label: panel.fieldsets.links.label
 type: group
 open: false
 fieldsets:

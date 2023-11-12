@@ -1,10 +1,6 @@
-label:
-   de: Layouts
-   en: Layouts
+label: panel.fields.layouts.label
 type: blocks
-empty:
-  de: Keine Layouts hinzugefügt
-  en: No layouts yet
+empty: panel.fields.layouts.empty
 fieldsets:
-  fullwidth: layouts/fullwidth
-  twocolumns: layouts/two-columns
+  layout-fullwidth: layouts/fullwidth
+  layout-two-columns: layouts/two-columns

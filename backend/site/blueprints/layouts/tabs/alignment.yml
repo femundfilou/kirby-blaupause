@@ -1,5 +1,9 @@
-label:
-  de: Ausrichtung
-  en: Alignment
+label: panel.layouts.tabs.alignment.label
 fields:
-  hidden: false
+  width:
+    label: panel.layouts.tabs.alignment.fields.width.label
+    type: toggles
+    default: default
+    options:
+      default:
+        *: panel.layouts.tabs.alignment.fields.width.options.default
