@@ -30,23 +30,17 @@
 		$isDownload = false;
 	}
 ?>
-	<a class="button <?= 'is-' . $block->style() ?>" href="<?= $input ?>" <?php e($isDownload, 'target="_blank"') ?>>
+	<a class="<?php e(!$block->style()->is('text'), 'button ', '') ?><?= 'is-' . $block->style() ?>" href="<?= $input ?>" <?php e($isDownload, 'target="_blank"') ?>>
 		<?php if ($isEmail) : ?>
-			<span class="icon">
-				<?php snippet('icon', ['name' => 'mail', 'size' => '1.25em']); ?>
-			</span>
+			<?php snippet('icon', ['name' => 'mail', 'size' => '1.25em']); ?>
 		<?php endif; ?>
 		<?php if ($isPhone) : ?>
-			<span class="icon">
-				<?php snippet('icon', ['name' => 'phone', 'size' => '1.25em']); ?>
-			</span>
+			<?php snippet('icon', ['name' => 'phone', 'size' => '1.25em']); ?>
 		<?php endif; ?>
-		<span><?= $block->text()->html() ?></span>
+		<?= $block->text()->html() ?>
 		<?php
 		if ($isDownload) : ?>
-			<span class="icon">
-				<?php snippet('icon', ['name' => 'download', 'size' => '1.25em']); ?>
-			</span>
+			<?php snippet('icon', ['name' => 'download', 'size' => '1.25em']); ?>
 		<?php endif; ?>
 	</a>
 <?php endif; ?>

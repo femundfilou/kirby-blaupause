@@ -10,10 +10,8 @@ fields:
   style:
     label: panel.blocks.button.fields.style.label
     type: toggles
-    default: pink
+    default: default
     options:
-      pink: Pink
-      pink-outline: Pink (Outline)
-      highlight: Hellgrün
+      default: Standard
       text: Text
     required: true
