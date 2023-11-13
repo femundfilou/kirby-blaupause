@@ -8,7 +8,6 @@ return [
 	"languages" => true,
 	"ready" => fn () => [
 		"panel" => [
-			// "favicon" => option("debug") ? "assets/panel/favicon-dev.svg" : "assets/panel/favicon-live.svg",
 			"css" => vite("frontend/panel.css"),
 		],
 	],

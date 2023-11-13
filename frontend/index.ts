@@ -1,3 +1,4 @@
+import "./assets/panel/favicon-dev.svg";
 import "cleacss/css";
 import "./index.css"
 
