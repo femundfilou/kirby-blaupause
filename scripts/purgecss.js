@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import { exec } from 'child_process';
-import glob from 'glob';
+import { glob } from 'glob';
 import path from 'path';
 import purgeCSSConfig from '../purgecss.config.cjs';
 
