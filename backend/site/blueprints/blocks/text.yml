@@ -1,0 +1,30 @@
+name: field.blocks.text.name
+icon: text
+wysiwyg: true
+preview: text
+fields:
+  style:
+    label: panel.blocks.text.fields.style.label
+    type: toggles
+    empty: false
+    default: "default"
+    grow: false
+    options:
+      - value: "small"
+        text:
+          *: panel.blocks.text.fields.style.options.small.text
+      - value: "default"
+        text:
+          *: panel.blocks.text.fields.style.options.default.text
+      - value: "large"
+        text:
+          *: panel.blocks.text.fields.style.options.large.text
+  text:
+    extends: fields/writer
+    inline: false
+    marks:
+      - bold
+      - link
+      - email
+      - clear
+    placeholder: field.blocks.text.placeholder

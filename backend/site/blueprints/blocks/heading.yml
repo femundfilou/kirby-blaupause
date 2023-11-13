@@ -54,7 +54,6 @@ fields:
         icon: h6
         text: H6
   text:
+    extends: fields/writer
     label: field.blocks.heading.text
-    type: writer
-    inline: true
     placeholder: field.blocks.heading.placeholder

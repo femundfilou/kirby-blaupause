@@ -76,3 +76,7 @@ panel.blocks.image.fields.alignment.options.right.text: Rechtsbündig
 panel.blocks.button.name: Button
 panel.blocks.button.fields.style.label: Stil
 panel.blocks.heading.fields.style.label: Stil
+panel.blocks.text.fields.style.label: Stil
+panel.blocks.text.fields.style.options.large.text: Größer
+panel.blocks.text.fields.style.options.default.text: Normal
+panel.blocks.text.fields.style.options.small.text: Kleiner
