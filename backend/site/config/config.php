@@ -1,5 +1,14 @@
 <?php
+
 return [
+	"cache" => [
+		"pages" => [
+			"active" => true,
+			"ignore" => function ($page) {
+				return in_array($page->intendedTemplate()->name(), ["thanks", "error"]);
+			},
+		],
+	],
 	"date"  => [
 		"handler" => "intl"
 	],
@@ -9,6 +18,16 @@ return [
 	"ready" => fn () => [
 		"panel" => [
 			"css" => vite("frontend/panel.css"),
+			"favicon" => vite()->asset("frontend/assets/panel/favicon-dev.svg"),
+			'menu' => [
+				'site' => \Femundfilou\Menu\Menu::site('Dashboard', 'dashboard'),
+				'-',
+				'retour',
+				'-',
+				'users',
+				'languages',
+				'system'
+			],
 		],
 	],
 	"routes" => [
@@ -34,5 +53,8 @@ return [
 				}
 			},
 		],
-		*/]
+	*/],
+	'tobimori.seo' => [
+		'robots.indicator' => false
+	]
 ];

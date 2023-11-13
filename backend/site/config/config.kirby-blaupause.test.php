@@ -17,11 +17,5 @@ return [
 			"port" => 1025,
 			"security" => false
 		]
-	],
-	"ready" => fn () => [
-		"panel" => [
-			"favicon" => vite()->asset("frontend/assets/panel/favicon-dev.svg"),
-			"css" => vite("frontend/panel.css"),
-		]
-	],
+	]
 ];
