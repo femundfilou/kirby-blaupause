@@ -33,7 +33,7 @@ node_modules
 # ---------------
 vendor
 kirby
-/backend/site/plugins
+/backend/site/plugins/*
 !/backend/site/plugins/blaupause-*
 
 # Editors
