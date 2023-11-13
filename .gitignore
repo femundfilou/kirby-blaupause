@@ -26,14 +26,15 @@ lerna-debug.log*
 # Frontend files
 # ---------------
 node_modules
-public/hot
-public/icons.svg
+/public/hot
+/public/icons.svg
 
 # Backend files
 # ---------------
 vendor
 kirby
-backend/site/plugins
+/backend/site/plugins
+!/backend/site/plugins/blaupause-*
 
 # Editors
 # (sensitive workspace files)
