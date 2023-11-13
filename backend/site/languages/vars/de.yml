@@ -75,3 +75,4 @@ panel.blocks.image.fields.alignment.options.centered.text: Zentriert
 panel.blocks.image.fields.alignment.options.right.text: Rechtsbündig
 panel.blocks.button.name: Button
 panel.blocks.button.fields.style.label: Stil
+panel.blocks.heading.fields.style.label: Stil
