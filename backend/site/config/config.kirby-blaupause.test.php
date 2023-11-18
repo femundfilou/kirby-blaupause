@@ -5,7 +5,7 @@ use Kirby\Toolkit\A;
 return [
 	"cache" => [
 		"pages" => [
-			"active" => false
+			// "active" => false
 		]
 	],
 	"debug" => true,

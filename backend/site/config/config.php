@@ -4,6 +4,8 @@ return [
 	"cache" => [
 		"pages" => [
 			"active" => true,
+			"type"   => "static",
+			"headers" => true,
 			"ignore" => function ($page) {
 				return in_array($page->intendedTemplate()->name(), ["thanks", "error"]);
 			},

@@ -22,6 +22,12 @@ RewriteEngine on
 #
 # RewriteBase /
 
+# Staticache
+RewriteCond %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI}/index.html -f [NC]
+RewriteRule ^(.*) %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI}/index.html [END]
+RewriteCond %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI} -f [NC]
+RewriteRule ^(.*) %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI} [END]
+
 # block files and folders beginning with a dot, such as .git
 # except for the .well-known folder, which is used for Let's Encrypt and security.txt
 RewriteRule (^|/)\.(?!well-known\/) index.php [L]
@@ -65,3 +71,7 @@ Header set Content-Type "text/plain" "expr=-z %{CONTENT_TYPE}"
 Header set X-Content-Type-Options "nosniff"
 
 </IfModule>
+
+# <Directory "/var/www/your-site/site/cache">
+#   SetHandler send-as-is
+# </Directory>
