@@ -11,6 +11,7 @@
     "icons:build": "node scripts/svg-sprite.js -i frontend/assets/svg/ -o public/icons.svg",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "blocks:dev": "pnpm --filter blaupause-block-previews dev",
+    "blocks:build": "pnpm --filter blaupause-block-previews build",
     "release": "release-it"
   },
   "keywords": [],
