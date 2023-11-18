@@ -1,0 +1,24 @@
+name: field.blocks.list.name
+icon: list-bullet
+wysiwyg: true
+preview: list
+fields:
+  style:
+    label: panel.blocks.list.fields.style.label
+    type: toggles
+    empty: false
+    default: "default"
+    grow: false
+    options:
+      - value: "small"
+        text:
+          *: panel.blocks.list.fields.style.options.small.text
+      - value: "default"
+        text:
+          *: panel.blocks.list.fields.style.options.default.text
+      - value: "large"
+        text:
+          *: panel.blocks.list.fields.style.options.large.text
+  text:
+    label: field.blocks.list.name
+    type: list

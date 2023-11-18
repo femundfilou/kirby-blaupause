@@ -1,0 +1,155 @@
+<template>
+  <div :data-level="content.level" :data-style="content.style" class="k-block-type-heading-input">
+    <k-writer ref="input" v-bind="textField" :inline="true" :keys="keys" :value="content.text"
+      @input="update({ text: $event })" />
+    <k-input v-if="levels.length > 1" ref="level" :empty="false" :options="levels" :value="content.level" type="select"
+      class="k-block-type-heading-level" @input="update({ level: $event })" />
+  </div>
+</template>
+
+<script>
+/**
+ * @displayName BlockTypeHeading
+ * @internal
+ */
+export default {
+  computed: {
+    isSplitable() {
+      return (
+        this.content.text.length > 0 &&
+        this.$refs.input.isCursorAtStart === false &&
+        this.$refs.input.isCursorAtEnd === false
+      );
+    },
+    keys() {
+      return {
+        Enter: () => {
+          if (this.$refs.input.isCursorAtEnd === true) {
+            return this.$emit("append", "text");
+          }
+
+          return this.split();
+        },
+        "Mod-Enter": this.split
+      };
+    },
+    levels() {
+      return this.field("level", { options: [] }).options;
+    },
+    textField() {
+      return this.field("text", {
+        marks: true
+      });
+    }
+  },
+  methods: {
+    focus() {
+      this.$refs.input.focus();
+    },
+    merge(blocks) {
+      this.update({
+        text: blocks.map((block) => block.content.text).join(" ")
+      });
+    },
+    split() {
+      const contents = this.$refs.input.getSplitContent?.();
+
+      if (contents) {
+        this.$emit("split", [
+          { text: contents[0] },
+          {
+            // decrease heading level for newly created block
+            level: "h" + Math.min(parseInt(this.content.level.slice(1)) + 1, 6),
+            text: contents[1]
+          }
+        ]);
+      }
+    }
+  }
+};
+</script>
+
+<style>
+.k-block-type-heading-input {
+  display: flex;
+  align-items: center;
+  line-height: 1.25em;
+  font-size: var(--text-size);
+  font-weight: var(--font-bold);
+}
+
+.k-block-type-heading-input[data-level="h1"] {
+  --text-size: var(--text-3xl);
+  line-height: 1.125em;
+}
+
+.k-block-type-heading-input[data-level="h2"] {
+  --text-size: var(--text-2xl);
+}
+
+.k-block-type-heading-input[data-level="h3"] {
+  --text-size: var(--text-xl);
+}
+
+.k-block-type-heading-input[data-level="h4"] {
+  --text-size: var(--text-lg);
+}
+
+.k-block-type-heading-input[data-level="h5"] {
+  --text-size: var(--text-md);
+  line-height: 1.5em;
+}
+
+.k-block-type-heading-input[data-level="h6"] {
+  --text-size: var(--text-sm);
+  line-height: 1.5em;
+}
+
+.k-block-type-heading-input .k-writer .ProseMirror strong {
+  font-weight: 700;
+}
+
+.k-block-type-heading-level {
+  --input-color-back: transparent;
+  --input-color-border: none;
+  --input-color-text: var(--color-gray-600);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+}
+
+.k-block-type-heading-input {
+  font-family: var(--clea-font-family);
+  color: var(--clea-color-dark-chocolate);
+  font-weight: var(--clea-font-weight-bold);
+  line-height: 1.25em;
+
+}
+
+.k-block-type-heading-input[data-style="h1"] {
+  font-size: calc(var(--clea-size-1) / 1);
+}
+
+.k-block-type-heading-input[data-style="h2"] {
+  font-size: calc(var(--clea-size-2) / 1);
+}
+
+.k-block-type-heading-input[data-style="h3"] {
+  font-size: calc(var(--clea-size-3) / 1);
+}
+
+.k-block-type-heading-input[data-style="h4"] {
+  font-size: calc(var(--clea-size-4) / 1);
+}
+
+.k-block-type-heading-input[data-style="h5"] {
+  font-size: var(--clea-size-5);
+}
+
+.k-block-type-heading-input[data-style="h6"] {
+  font-size: var(--clea-size-6);
+}
+
+.k-block-type-heading-input .ProseMirror strong {
+  font-weight: 700;
+}
+</style>

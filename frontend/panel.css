@@ -1,8 +1,4 @@
-:root {
-  --theme-accent: #f3f3f3;
-  --theme-bg: #000;
-}
-
+@import "cleacss/css/variables";
 
 /* Custom login form styling */
 .k-login-view {
@@ -33,18 +29,12 @@
 }
 
 /** Custom Blocks Styling **/
-.k-blocks {
-  background: transparent;
+.k-blocks:not([data-empty=true], [data-disabled=true]) {
+  background-color: transparent;
   box-shadow: none;
-  border-radius: none;
 
+  /* Remove border, add margin seperation*/
   &>.k-blocks-list>.k-block-container {
-    border-radius: var(--rounded);
-
-    &:not([data-selected='true']) {
-      box-shadow: var(--shadow);
-    }
-
     &:not(:last-of-type) {
       border-bottom: none;
       margin-bottom: 0.5rem;

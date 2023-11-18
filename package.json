@@ -10,6 +10,7 @@
     "css:purge": "node scripts/purgecss.js",
     "icons:build": "node scripts/svg-sprite.js -i frontend/assets/svg/ -o public/icons.svg",
     "check": "svelte-check --tsconfig ./tsconfig.json",
+    "blocks:dev": "pnpm --filter blaupause-block-previews dev",
     "release": "release-it"
   },
   "keywords": [],

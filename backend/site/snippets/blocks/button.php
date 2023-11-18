@@ -30,7 +30,7 @@
 		$isDownload = false;
 	}
 ?>
-	<a class="<?php e(!$block->style()->is('text'), 'button ', '') ?><?= 'is-' . $block->style() ?>" href="<?= $input ?>" <?php e($isDownload, 'target="_blank"') ?>>
+	<a class="<?php e($block->style()->value() !== 'text', 'button ', '') ?><?= 'is-' . $block->style() ?>" href="<?= $input ?>" <?php e($isDownload, 'target="_blank"') ?>>
 		<?php if ($isEmail) : ?>
 			<?php snippet('icon', ['name' => 'mail', 'size' => '1.25em']); ?>
 		<?php endif; ?>
