@@ -14,7 +14,11 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "APP");
   return {
     build: {
-      cssMinify: 'lightningcss'
+      cssMinify: 'lightningcss',
+      minify: 'terser',
+      terserOptions: {
+        keep_classnames: true
+      }
     },
     css: {
       transformer: 'lightningcss',
@@ -37,7 +41,7 @@ export default defineConfig(({ mode }) => {
           'backend/site/snippets/**',
           'backend/site/templates/**'
         ],
-        detectTls: env.APP_URL.replace(new RegExp("https?://"), ""),
+        detectTls: env.APP_URL?.replace(new RegExp("https?://"), ""),
       })
     ],
     resolve: {
