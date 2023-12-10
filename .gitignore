@@ -6,6 +6,7 @@ Icon
 # Temporary files
 # ---------------
 /public/build/*
+/public/cache/*
 /public/media/*
 !/public/media/index.html
 

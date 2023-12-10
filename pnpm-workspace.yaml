@@ -1,2 +1,2 @@
 packages:
-  - 'backend/site/plugins/*'
+  - 'backend/site/plugins/blaupause-block-previews'
