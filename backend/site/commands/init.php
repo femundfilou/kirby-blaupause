@@ -50,7 +50,7 @@ return [
 				$cli->out("Copy .env.example to .env");
 				F::copy($projectRoot . "/.env.example", $projectRoot . "/.env");
 			}
-			$domain = $cli->prompt('Please enter the domain used in development e.g. your valet domain:');
+			$domain = $cli->prompt('Please enter the url used in development e.g. your valet url https://example.test');
 			// Check if the user input starts with 'http://' or 'https://'
 			if (!preg_match('/^(http:\/\/|https:\/\/)/', $domain)) {
 				$domain = 'http://' . $domain; // Prepend 'http://' if missing
@@ -66,10 +66,10 @@ return [
 		if ($input->confirmed()) {
 			if (!isset($domain) || !$domain) {
 				$domain = $cli->prompt('Please enter the domain used in development e.g. your valet domain:');
-				// Remove 'http://' or 'https://' from the beginning of the domain if present
-				$domain = preg_replace('/^(http:\/\/|https:\/\/)/', '', $domain);
-				F::move($projectRoot . "/backend/site/config/config.kirby-blaupause.test.php", $projectRoot . "/backend/site/config/config." . $domain . ".php");
 			}
+			// Remove 'http://' or 'https://' from the beginning of the domain if present
+			$domain = preg_replace('/^(http:\/\/|https:\/\/)/', '', $domain);
+			F::move($projectRoot . "/backend/site/config/config.kirby-blaupause.test.php", $projectRoot . "/backend/site/config/config." . $domain . ".php");
 		}
 
 		$cli->success('All done. Ready to roll!');
