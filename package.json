@@ -41,7 +41,7 @@
   "dependencies": {
     "@swup/a11y-plugin": "^4.4.2",
     "@swup/head-plugin": "^2.1.2",
-    "cleacss": "link:../cleacss",
+    "cleacss": "1.0.0-beta.2",
     "laravel-vite-plugin": "^0.8.1",
     "swup": "^4.4.2"
   }

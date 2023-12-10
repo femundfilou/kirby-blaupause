@@ -15,8 +15,8 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(swup@4.4.2)
       cleacss:
-        specifier: link:../cleacss
-        version: link:../cleacss
+        specifier: 1.0.0-beta.2
+        version: 1.0.0-beta.2
       laravel-vite-plugin:
         specifier: ^0.8.1
         version: 0.8.1(vite@4.5.0)
@@ -1032,6 +1032,10 @@ packages:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
     engines: {node: '>=8'}
     dev: true
+
+  /cleacss@1.0.0-beta.2:
+    resolution: {integrity: sha512-hqVLu2vm2kGyZLAmgVnpnBLGmNtRH1sSZjzzGUFasH/kFLlbM1BONyqAeriAs9fp7SxxR/UTHLgMnDm3eP+qTA==}
+    dev: false
 
   /cli-boxes@3.0.0:
     resolution: {integrity: sha512-/lzGpEWL/8PfI0BmBOPRwp0c/wFNX1RdUML3jK/RcSBA9T8mZDdQpqYBKtCFTOfQbwPqWEOpjqW+Fnayc0969g==}
