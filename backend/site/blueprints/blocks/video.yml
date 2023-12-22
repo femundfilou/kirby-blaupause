@@ -1,0 +1,67 @@
+name: field.blocks.video.name
+icon: video
+preview: false
+fields:
+  external:
+    label: Externes Video
+    type: toggle
+    default: 1
+    text: 
+      - Nein
+      - Ja
+  url:
+    label: field.blocks.video.url.label
+    type: url
+    required: true
+    placeholder: field.blocks.video.url.placeholder
+    when:
+      external: true
+  srcmp4: 
+    label: Video (mp4 Format)
+    extends: fields/video
+    width: 1/2
+    when:
+      external: false
+  srcwebm: 
+    label: Video (webm Format)
+    extends: fields/video
+    width: 1/2
+    when:
+      external: false
+  poster:
+    extends: fields/image
+    label: Poster
+    help: Ein Poster wird verwendet, wenn das Video nicht geladen ist.
+  caption:
+    label: field.blocks.video.caption
+    type: writer
+    inline: true
+  ratio:
+    label: field.blocks.image.ratio
+    type: select
+    placeholder: Auto
+    width: 1/3
+    options:
+      1/1: "1:1"
+      16/9: "16:9"
+      10/8: "10:8"
+      21/9: "21:9"
+      7/5: "7:5"
+      4/3: "4:3"
+      5/3: "5:3"
+      3/2: "3:2"
+      3/1: "3:1"
+  crop:
+    label: field.blocks.image.crop
+    type: toggle
+    width: 1/3
+  loop:
+    label: Loop
+    width: 1/3
+    type: toggle
+    when:
+      external: false
+    help: Das Video wird stummgeschaltet und in einer Endlosschleife abgespielt.
+    text:
+      - Nein
+      - Ja 

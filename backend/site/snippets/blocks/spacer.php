@@ -1,0 +1,1 @@
+<div style="height: <?= $block->height(); ?>rem;"></div>

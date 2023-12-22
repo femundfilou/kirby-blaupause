@@ -1,0 +1,28 @@
+@import url("../variables/_breakpoints.css");
+
+.block-type-video {
+  position: relative;
+
+  & figure {
+    aspect-ratio: var(--aspect-ratio);
+    margin-block: var(--clea-size-4);
+
+    @media (--desktop) {
+      margin-block: var(--clea-size-1);
+    }
+
+    & video,
+    & iframe {
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      object-fit: var(--object-fit, 'contain');
+      display: flex;
+    }
+
+    & figcaption {
+      padding: var(--clea-size-7) var(--clea-size-6) 0 var(--clea-size-6);
+      font-family: cssvar(font-family-sans);
+    }
+  }
+}

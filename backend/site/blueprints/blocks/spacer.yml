@@ -1,0 +1,12 @@
+name: Abstand
+icon: divider
+fields:
+  height:
+    label: Größe
+    type: range
+    min: 0.25
+    after: rem
+    step: 0.25
+    max: 6
+    default: 1.25
+    required: true
