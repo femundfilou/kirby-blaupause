@@ -2,8 +2,8 @@
   "git": {
     "requireUpstream": false,
     "push": false,
-    "tagName": "v",
-    "commitMessage": "chore: release v"
+    "tagName": "v${version}",
+    "commitMessage": "chore: release v${version}"
   },
   "npm": {
     "publish": false
