@@ -1,5 +1,5 @@
 <template>
-  <div :data-style="content.style">
+  <div :data-style="content.style" :data-alignment="content.alignment">
     <component :is="component" ref="input" v-bind="textField" :keys="keys" :value="content.text"
       class="k-block-type-text-input" @input="update({ text: $event })" />
   </div>
@@ -77,7 +77,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .k-block-type-text-input {
   line-height: 1.5;
   height: 100%;
@@ -94,6 +94,18 @@ export default {
 .k-block-type-text-input.k-writer:not([data-toolbar-inline="true"])>.ProseMirror,
 .k-block-type-text-input.k-writer:not([data-toolbar-inline="true"])[data-placeholder][data-empty="true"]:before {
   padding: var(--spacing-3) var(--spacing-6);
+}
+
+[data-alignment="left"] {
+  text-align: left;
+}
+
+[data-alignment="centered"] {
+  text-align: center;
+}
+
+[data-alignment="right"] {
+  text-align: right;
 }
 
 [data-style="small"] {

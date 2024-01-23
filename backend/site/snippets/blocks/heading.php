@@ -2,11 +2,9 @@
 
 /**
  *  @var \Kirby\Cms\Block $block
- *  @var \Femundfilou\AssetManager\AssetManager $assetManager
  * 
  */
 
-$assetManager->add('css', vite()->asset('frontend/styles/blocks/heading.css'));
 
 $styles = [
 	'h1' => 'has-size-1',
@@ -19,6 +17,7 @@ $styles = [
 
 $styleValue = $block->style()->value();
 $style = $styles[$styleValue] ?? $styles['h2'];
+$alignment = $block->alignment()->value() ?? 'left';
 
 ?>
-<<?= $level = $block->level()->or('h2') ?> class="<?= $style ?>"><?= $block->text() ?></<?= $level ?>>
+<<?= $level = $block->level()->or('h2') ?> class="<?= $style ?> <?= "has-text-" . $alignment ?>"><?= $block->text() ?></<?= $level ?>>

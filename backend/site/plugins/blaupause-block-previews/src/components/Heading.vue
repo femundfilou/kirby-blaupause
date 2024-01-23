@@ -1,5 +1,6 @@
 <template>
-  <div :data-level="content.level" :data-style="content.style" class="k-block-type-heading-input">
+  <div :data-level="content.level" :data-style="content.style" :data-alignment="content.alignment"
+    class="k-block-type-heading-input">
     <k-writer ref="input" v-bind="textField" :inline="true" :keys="keys" :value="content.text"
       @input="update({ text: $event })" />
     <k-input v-if="levels.length > 1" ref="level" :empty="false" :options="levels" :value="content.level" type="select"
@@ -69,7 +70,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .k-block-type-heading-input {
   display: flex;
   align-items: center;
@@ -147,6 +148,18 @@ export default {
 
 .k-block-type-heading-input[data-style="h6"] {
   font-size: var(--clea-size-6);
+}
+
+.k-block-type-heading-input[data-alignment="left"] {
+  text-align: left;
+}
+
+.k-block-type-heading-input[data-alignment="centered"] {
+  text-align: center;
+}
+
+.k-block-type-heading-input[data-alignment="right"] {
+  text-align: right;
 }
 
 .k-block-type-heading-input .ProseMirror strong {

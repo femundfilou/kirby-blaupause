@@ -1,4 +1,17 @@
-<?php if (!$block->isHidden()) :
+<?php
+
+/**
+ *  @var \Kirby\Cms\Block $block
+ *  @var \Femundfilou\AssetManager\AssetManager $assetManager
+ * 
+ */
+
+$assetManager->add('css', vite()->asset('frontend/styles/blocks/button.css'));
+
+if (!$block->isHidden()) :
+
+	// Alignment
+	$alignment = $block->alignment()->value() ?? 'left';
 
 	// Download
 	$isDownload = false;
@@ -30,7 +43,7 @@
 		$isDownload = false;
 	}
 ?>
-	<a class="<?php e($block->style()->value() !== 'text', 'button ', '') ?><?= 'is-' . $block->style() ?>" href="<?= $input ?>" <?php e($isDownload, 'target="_blank"') ?>>
+	<a class="<?php e($block->style()->value() !== 'text', 'button ', '') ?><?= 'is-' . $block->style() ?>" data-alignment="<?= $alignment ?>" href="<?= $input ?>" <?php e($isDownload, 'target="_blank"') ?>>
 		<?php if ($isEmail) : ?>
 			<?php snippet('icon', ['name' => 'mail', 'size' => '1.25em']); ?>
 		<?php endif; ?>

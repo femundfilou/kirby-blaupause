@@ -1,15 +1,18 @@
 <template>
-  <input :class="['button', `is-${content.style}`]" type="text" :placeholder="placeholder" :value="content.text"
-    @input="update({ text: $event.target.value })" />
+  <input :class="['button', `is-${content.style}`]" :data-alignment="content.alignment" type="text"
+    :placeholder="placeholder" :value="content.text" @input="update({ text: $event.target.value })" />
 </template>
 
 <script>
-export default {
-  // Put your section logic here
-};
+export default {};
 </script>
 
 <style>
+.k-block-type-button {
+  display: flex;
+}
+</style>
+<style scoped>
 .button {
   appearance: none;
   background: var(--clea-button-background-color);
@@ -47,5 +50,17 @@ export default {
   border-color: var(--clea-button-bordr-color-invert);
   color: var(--clea-button-color);
   text-decoration: none;
+}
+
+.button[data-alignment="left"] {
+  margin-right: auto;
+}
+
+.button[data-alignment="centered"] {
+  margin-inline: auto;
+}
+
+.button[data-alignment="right"] {
+  margin-left: auto;
 }
 </style>
