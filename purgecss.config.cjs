@@ -12,8 +12,9 @@ module.exports = {
 	keyframes: true, // Remove unused @keyframes
 	rejected: false, // Activate to see which css has been removed
 	variables: true, // Remove unused css variables
+	dynamicAttributes: ["data-layout", "data-theme", "data-layout-spacebottom", "data-layout-spacetop", "data-alignment"],
 	safelist: {
-		standard: [/^block/, /^layout/, /^\[data-/, /^has-size-/],
+		standard: [/^block/, /^layout/, /^\[data-/, /^has-size-/, /^has-text-/],
 		deep: [],
 		greedy: [],
 		keyframes: [],

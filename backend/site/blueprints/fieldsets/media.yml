@@ -4,4 +4,3 @@ open: false
 fieldsets:
   - image
   - video
-  - box

@@ -5,10 +5,12 @@ button.menu: Menü
 
 # Site Tabs
 panel.site.tabs.dashboard.label: Dashboard
+
 # Site Sections
 panel.site.sections.mainmenu.label: Hauptnavigation
 panel.site.sections.pages.label: Veröffentlichte Seiten
 panel.site.sections.drafts.label: Entwürfe
+
 # Site Fields
 panel.site.fields.footermenu.label: Footer-Navigation
 panel.site.fields.privacypage.label: Datenschutz-Seite
@@ -40,6 +42,8 @@ panel.fields.image.label: Bild
 panel.fields.image.empty: Kein Bild hinzugefügt.
 panel.fields.layouts.label: Layouts
 panel.fields.layouts.empty: Keine Layouts hinzugefügt.
+panel.fields.video.label: Video
+panel.fields.video.empty: Kein Video hinzugefügt.
 
 # Fieldsets
 panel.fieldsets.heroes.label: Heroes
@@ -73,6 +77,16 @@ panel.blocks.image.fields.alignment.label: Ausrichtung
 panel.blocks.image.fields.alignment.options.left.text: Linksbündig
 panel.blocks.image.fields.alignment.options.centered.text: Zentriert
 panel.blocks.image.fields.alignment.options.right.text: Rechtsbündig
+panel.blocks.video.fields.external.label: Externes Video
+panel.blocks.video.fields.external.options.false: Nein
+panel.blocks.video.fields.external.options.true: Ja
+panel.blocks.video.fields.poster.label: Poster
+panel.blocks.video.fields.sources.label: Videos
+panel.blocks.video.fields.poster.help: Ein Poster wird verwendet, wenn das Video nicht geladen ist.
+panel.blocks.video.fields.loop.label: Loop
+panel.blocks.video.fields.loop.help: Das Video wird stummgeschaltet und in einer Endlosschleife abgespielt.
+panel.blocks.video.fields.loop.options.false: Nein
+panel.blocks.video.fields.loop.options.true: Ja
 panel.blocks.button.name: Button
 panel.blocks.button.fields.style.label: Stil
 panel.blocks.button.fields.alignment.label: Ausrichtung
@@ -96,3 +110,6 @@ panel.blocks.list.fields.style.label: Stil
 panel.blocks.list.fields.style.options.large.text: Größer
 panel.blocks.list.fields.style.options.default.text: Normal
 panel.blocks.list.fields.style.options.small.text: Kleiner
+field.blocks.jumpmark.name: Sprungmarke
+field.blocks.jumpmark.fields.id.label: Identifikator
+field.blocks.jumpmark.fields.id.help: Hier sollte ein für die Seite einzigartiger Name verwendet werden. Kleinschreibung und keine Leerzeichen.

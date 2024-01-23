@@ -15,7 +15,6 @@ $assetManager->add('js', vite()->asset('frontend/blocks/video.ts'), ['data-swup-
 $crop    = $block->crop()->isTrue();
 $ratio   = $block->ratio()->or('auto');
 $cropFactor = 0;
-$usePoster = isset($usePoster) ? $usePoster : true;
 
 if ($ratio != 'auto' && $crop) {
 	// Split string to array and reverse it, e.g. "16/9" => [9,16]
@@ -34,13 +33,10 @@ $poster = $block->poster()->toFile() ? $block->poster()->toFile()->thumb($thumbC
 	<?php if ($block->external()->toBool()) : ?>
 		<?= Html::video($block->url(), [], ['data-src' => $block->url(), 'src' => '']); ?>
 	<?php else : ?>
-		<video <?= e($block->loop()->toBool(), 'autoplay muted loop', 'controls') ?> playsinline <?= e($usePoster, 'poster="' . $poster); ?>">
-			<?php if ($srcmp4 = $block->srcmp4()->toFile()) : ?>
-				<source src="<?= $srcmp4->url() ?>" type="video/mp4">
-			<?php endif; ?>
-			<?php if ($srcwebm = $block->srcwebm()->toFile()) : ?>
-				<source src="<?= $srcwebm->url() ?>" type="video/webm">
-			<?php endif; ?>
+		<video <?= e($block->loop()->toBool(), 'autoplay muted loop', 'controls') ?> playsinline <?= e($poster, 'poster="' . $poster . '"'); ?>>
+			<?php foreach ($block->sources()->toFiles() as $video) : ?>
+				<source src="<?= $video->url() ?>" type="<?= $video->mime() ?>">
+			<?php endforeach; ?>
 		</video>
 	<?php endif; ?>
 	<?php if ($block->caption()->isNotEmpty()) : ?>

@@ -3,12 +3,12 @@ icon: video
 preview: false
 fields:
   external:
-    label: Externes Video
+    label: panel.blocks.video.fields.external.label
     type: toggle
     default: 1
-    text: 
-      - Nein
-      - Ja
+    text:
+      - *: panel.blocks.video.fields.external.options.false
+      - *: panel.blocks.video.fields.external.options.true
   url:
     label: field.blocks.video.url.label
     type: url
@@ -16,22 +16,16 @@ fields:
     placeholder: field.blocks.video.url.placeholder
     when:
       external: true
-  srcmp4: 
-    label: Video (mp4 Format)
+  sources:
+    label: panel.blocks.video.fields.sources.label
     extends: fields/video
-    width: 1/2
-    when:
-      external: false
-  srcwebm: 
-    label: Video (webm Format)
-    extends: fields/video
-    width: 1/2
+    multiple: true
     when:
       external: false
   poster:
     extends: fields/image
-    label: Poster
-    help: Ein Poster wird verwendet, wenn das Video nicht geladen ist.
+    label: panel.blocks.video.fields.poster.label
+    help: panel.blocks.video.fields.poster.help
   caption:
     label: field.blocks.video.caption
     type: writer
@@ -56,12 +50,12 @@ fields:
     type: toggle
     width: 1/3
   loop:
-    label: Loop
+    label: panel.blocks.video.fields.loop.label
     width: 1/3
     type: toggle
     when:
       external: false
-    help: Das Video wird stummgeschaltet und in einer Endlosschleife abgespielt.
+    help: panel.blocks.video.fields.loop.help
     text:
-      - Nein
-      - Ja 
+      - *: panel.blocks.video.fields.loop.options.false
+      - *: panel.blocks.video.fields.loop.options.true

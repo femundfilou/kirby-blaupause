@@ -1,0 +1,7 @@
+label: panel.fields.video.label
+type: files
+uploads: video
+template: video
+empty: panel.fields.video.empty
+multiple: false
+query: page.files.filterBy('template', 'video')
