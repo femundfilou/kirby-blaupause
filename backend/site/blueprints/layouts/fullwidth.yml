@@ -11,5 +11,7 @@ tabs:
       blocks:
         extends: fields/blocks
         label: " "
+        fieldsets:
+          matomo: fieldsets/matomo
   style: layouts/tabs/style
   alignment: layouts/tabs/alignment

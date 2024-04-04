@@ -1,0 +1,5 @@
+label: panel.fieldsets.matomo.label
+type: group
+open: false
+fieldsets:
+  - matomo-optout

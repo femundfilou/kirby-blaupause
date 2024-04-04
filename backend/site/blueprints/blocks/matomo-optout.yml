@@ -1,0 +1,14 @@
+name: panel.blocks.matomo-optout.name
+icon: star
+wysiwyg: true
+preview: fields
+fields:
+  blocks:
+    extends: fields/blocks
+    label: panel.blocks.matomo-optout.fields.blocks.label
+  optedinlabel:
+    type: text
+    label: panel.blocks.matomo-optout.fields.optedinlabel.label
+  optedoutlabel:
+    type: text
+    label: panel.blocks.matomo-optout.fields.optedoutlabel.label
