@@ -28,6 +28,9 @@ class SwupManager {
       plugins: options.plugins || []
     });
 
+    // @ts-ignore
+    window.Swup = this.swup;
+
     this.debug = options.debug || false;
     this.initializeHooks();
   }
@@ -81,6 +84,17 @@ class SwupManager {
           this.logDebug(`Loading traditional script: ${src}`);
           this.loadTraditionalScript(originalScript);
         }
+
+      } else {
+        // inline script
+        this.logDebug('Executing inline script.');
+        const script = document.createElement('script');
+        script.type = originalScript.type || 'text/javascript';
+        // Copy any other attributes you care about here (like nonce or integrity)
+        if (originalScript.textContent) {
+          script.textContent = originalScript.textContent;
+        }
+        document.head.appendChild(script).parentNode?.removeChild(script);
       }
     }
   }
