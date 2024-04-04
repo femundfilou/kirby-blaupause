@@ -62,12 +62,37 @@ panel.files.image.fields.copyright.label: Copyright
 panel.layouts.tabs.alignment.label: Ausrichtung
 panel.layouts.tabs.alignment.fields.width.label: Breite
 panel.layouts.tabs.alignment.fields.width.options.default: Standard
+panel.layouts.tabs.alignment.fields.width.options.full: Volle Breite
+panel.layouts.tabs.alignment.fields.textalign.label: Text-Ausrichtung
+panel.layouts.tabs.alignment.fields.textalign.options.left: Links
+panel.layouts.tabs.alignment.fields.textalign.options.center: Zentriert
+panel.layouts.tabs.alignment.fields.textalign.options.right: Rechts
+panel.layouts.tabs.alignment.fields.textalign.options.justify: Blocksatz
+panel.layouts.tabs.alignment.fields.verticalalign.label: Vertikale Ausrichtung
+panel.layouts.tabs.alignment.fields.verticalalign.options.top: Oben
+panel.layouts.tabs.alignment.fields.verticalalign.options.bottom: Unten
+panel.layouts.tabs.alignment.fields.verticalalign.options.center: Zentriert
+panel.layouts.tabs.alignment.fields.verticalalign.options.stretch: Gestreckt
+panel.layouts.tabs.alignment.fields.spacetop.label: Abstand oben
+panel.layouts.tabs.alignment.fields.spacetop.options.none: Kein
+panel.layouts.tabs.alignment.fields.spacetop.options.small: Klein
+panel.layouts.tabs.alignment.fields.spacetop.options.medium: Mittel
+panel.layouts.tabs.alignment.fields.spacetop.options.large: Groß
+panel.layouts.tabs.alignment.fields.spacebottom.label: Abstand unten
+panel.layouts.tabs.alignment.fields.spacebottom.options.none: Kein
+panel.layouts.tabs.alignment.fields.spacebottom.options.small: Klein
+panel.layouts.tabs.alignment.fields.spacebottom.options.medium: Mittel
+panel.layouts.tabs.alignment.fields.spacebottom.options.large: Groß
+panel.layouts.tabs.alignment.fields.columnsreverse: Spaltenreihenfolge umkehren
+panel.layouts.tabs.alignment.fields.columnsreverse.false: Nein
+panel.layouts.tabs.alignment.fields.columnsreverse.true: Ja
 panel.layouts.tabs.style.label: Stil
 
 # Layouts
 panel.layouts.label: Layout
 panel.layouts.fullwidth.name: Volle Breite
 panel.layouts.two-columns.name: Zweispaltig
+panel.layouts.three-columns.name: Dreispaltig
 
 # Blocks
 panel.blocks.hero-default.name: Standard-Hero
@@ -113,3 +138,7 @@ panel.blocks.list.fields.style.options.small.text: Kleiner
 field.blocks.jumpmark.name: Sprungmarke
 field.blocks.jumpmark.fields.id.label: Identifikator
 field.blocks.jumpmark.fields.id.help: Hier sollte ein für die Seite einzigartiger Name verwendet werden. Kleinschreibung und keine Leerzeichen.
+
+# Privacy Overlay
+privacy-overlay.message: Mit dem Ansehen des Videos laden Sie Inhalte von {provider}.
+privacy-overlay.button: Akzeptieren

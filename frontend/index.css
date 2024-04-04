@@ -3,6 +3,9 @@
 --------------------------------------------------------------*/
 @import "styles/variables/_colors.css";
 @import "styles/variables/_breakpoints.css";
+@import "styles/variables/_typography.css";
+@import "styles/variables/_sizes.css";
+@import "styles/variables/_space.css";
 /*--------------------------------------------------------------
 # Settings & Utilities
 --------------------------------------------------------------*/
@@ -14,6 +17,7 @@
 @import "styles/_menu.css";
 @import "styles/_blocks.css";
 @import "styles/_i.css";
+@import "styles/_layouts.css";
 /*--------------------------------------------------------------
 # Styles Page
 --------------------------------------------------------------*/

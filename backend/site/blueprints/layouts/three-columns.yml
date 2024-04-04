@@ -1,0 +1,35 @@
+name: panel.layouts.three-columns.name
+label: panel.layouts.label
+icon: bars
+preview: fields
+wysiwyg: true
+tabs:
+  content:
+    label: panel.tabs.content.label
+    type: fields
+    fields:
+      blocksleft:
+        extends: fields/blocks
+        width: 1/3
+        label: " "
+      blockscenter:
+        extends: fields/blocks
+        width: 1/3
+        label: " "
+      blocksright:
+        extends: fields/blocks
+        width: 1/3
+        label: " "
+  style: layouts/tabs/style
+  alignment:
+    extends: layouts/tabs/alignment
+    fields:
+      columnsreverse:
+        label: panel.layouts.tabs.alignment.fields.columnsreverse
+        type: toggle
+        width: 1/4
+        text:
+          -
+            *: panel.layouts.tabs.alignment.fields.columnsreverse.false
+          -
+            *: panel.layouts.tabs.alignment.fields.columnsreverse.true

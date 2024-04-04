@@ -4,6 +4,91 @@ fields:
     label: panel.layouts.tabs.alignment.fields.width.label
     type: toggles
     default: default
+    grow: false
     options:
       default:
         *: panel.layouts.tabs.alignment.fields.width.options.default
+      full:
+        *: panel.layouts.tabs.alignment.fields.width.options.full
+  textalign:
+    label: panel.layouts.tabs.alignment.fields.textalign.label
+    type: toggles
+    grow: false
+    default: left
+    width: 1/2
+    options:
+      left:
+        icon: text-left
+        value: left
+        text:
+          *: panel.layouts.tabs.alignment.fields.textalign.options.left
+      center:
+        icon: text-center
+        value: center
+        text:
+          *: panel.layouts.tabs.alignment.fields.textalign.options.center
+      right:
+        icon: text-right
+        value: right
+        text:
+          *: panel.layouts.tabs.alignment.fields.textalign.options.right
+      justify:
+        icon: text-justify
+        value: justify
+        text:
+          *: panel.layouts.tabs.alignment.fields.textalign.options.justify
+  verticalalign:
+    label: panel.layouts.tabs.alignment.fields.verticalalign.label
+    type: toggles
+    width: 1/2
+    grow: false
+    default: top
+    options:
+      top:
+        icon: align-top
+        value: top
+        text:
+          *: panel.layouts.tabs.alignment.fields.verticalalign.options.top
+      bottom:
+        icon: align-bottom
+        value: bottom
+        text:
+          *: panel.layouts.tabs.alignment.fields.verticalalign.options.bottom
+      center:
+        icon: align-center
+        value: center
+        text:
+          *: panel.layouts.tabs.alignment.fields.verticalalign.options.center
+      stretch:
+        icon: align-stretch
+        value: stretch
+        text:
+          *: panel.layouts.tabs.alignment.fields.verticalalign.options.stretch
+  spacetop:
+    label: panel.layouts.tabs.alignment.fields.spacetop.label
+    type: toggles
+    width: 1/2
+    grow: false
+    options:
+      none:
+        *: panel.layouts.tabs.alignment.fields.spacetop.options.none
+      small:
+        *: panel.layouts.tabs.alignment.fields.spacetop.options.small
+      medium:
+        *: panel.layouts.tabs.alignment.fields.spacetop.options.medium
+      large:
+        *: panel.layouts.tabs.alignment.fields.spacetop.options.large
+  spacebottom:
+    label: panel.layouts.tabs.alignment.fields.spacebottom.label
+    type: toggles
+    width: 1/2
+    grow: false
+    options:
+      none:
+        *: panel.layouts.tabs.alignment.fields.spacebottom.options.none
+      small:
+        *: panel.layouts.tabs.alignment.fields.spacebottom.options.small
+      medium:
+        *: panel.layouts.tabs.alignment.fields.spacebottom.options.medium
+      large:
+        *: panel.layouts.tabs.alignment.fields.spacebottom.options.large

@@ -4,3 +4,4 @@ empty: panel.fields.layouts.empty
 fieldsets:
   layout-fullwidth: layouts/fullwidth
   layout-two-columns: layouts/two-columns
+  layout-three-columns: layouts/three-columns
