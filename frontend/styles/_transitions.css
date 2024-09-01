@@ -1,10 +1,68 @@
-/* Define a transition duration during page visits */
-html.is-changing .transition-fade {
-  transition: opacity 0.2s;
-  opacity: 1;
+:root {
+  /* Standard eases */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Emphasized eases */
+  --ease-out-emphasized: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  --ease-in-out-emphasized: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* Playful ease */
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-jump: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Define the styles for the unloaded pages */
-html.is-animating .transition-fade {
+/* Base styles for transition container */
+.transition-fade {
+  --_transition-delay: 50ms;
+  --_transition-duration: 0.5s;
+  transition-duration: var(--_transition-duration);
+}
+
+/* Hide overflow on any transition */
+html.is-changing {
+  overflow: hidden;
+}
+
+/* Base styles for children of transition container */
+.transition-fade>* {
+  transition: opacity var(--_transition-duration) var(--ease-out), transform var(--_transition-duration) var(--ease-out);
+}
+
+html.is-changing .transition-fade>* {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Styles for children leaving the page */
+html.is-animating .transition-fade>* {
   opacity: 0;
+  transform: translate3d(0, 3rem, 0);
+}
+
+/* Styles for children entering the page */
+html.is-leaving .transition-fade>* {
+  opacity: 0;
+  transform: translate3d(0, 3rem, 0);
+}
+
+/* Staggered delay for the first 4 children */
+.transition-fade> :nth-child(1) {
+  will-change: transform, opacity;
+  transition-delay: calc(var(--_transition-delay) * 1);
+}
+
+.transition-fade> :nth-child(2) {
+  will-change: transform, opacity;
+  transition-delay: calc(var(--_transition-delay) * 2);
+}
+
+.transition-fade> :nth-child(3) {
+  will-change: transform, opacity;
+  transition-delay: calc(var(--_transition-delay) * 3);
+}
+
+.transition-fade> :nth-child(4) {
+  will-change: transform, opacity;
+  transition-delay: calc(var(--_transition-delay) * 4);
 }
