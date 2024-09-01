@@ -1,10 +1,20 @@
 import "./assets/panel/favicon-dev.svg";
 import "cleacss/css";
 import "./index.css"
+import DebugService from "./services/DebugService";
 
-// Auto-load modules in lib
-for (const m of Object.values(
-  import.meta.glob("./lib/*.ts", { eager: true })
-)) {
-  (m as any).install?.();
-}
+/**
+ * Installs modules from the './lib' directory
+ * @remarks Uses Vite's import.meta.glob with eager loading
+ */
+const installModules = (): void => {
+  const modules = import.meta.glob<{ install?: () => void }>("./lib/*.ts", { eager: true });
+
+  for (const [path, module] of Object.entries(modules)) {
+    const moduleName = path.split('/').pop()?.replace('.ts', '');
+    DebugService.log(`Installing module: ${moduleName}`);
+    module.install?.();
+  }
+};
+
+installModules();
