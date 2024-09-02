@@ -37,7 +37,3 @@
 main:focus {
   outline: none;
 }
-
-[aria-hidden="true"] {
-  display: none !important;
-}
