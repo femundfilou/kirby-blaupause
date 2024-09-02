@@ -7,7 +7,7 @@
  */
 ?>
 <!DOCTYPE html>
-<html lang="<?= $kirby->language()->code() ?>">
+<html lang="<?= $kirby->language()->code() ?>" class="no-js">
 
 <head>
 	<meta charset="UTF-8" />
