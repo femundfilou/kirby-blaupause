@@ -1,5 +1,5 @@
 name: panel.blocks.matomo-optout.name
-icon: star
+icon: chart
 wysiwyg: true
 preview: fields
 fields:

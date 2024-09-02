@@ -1,9 +1,9 @@
-name: field.blocks.jumpmark.name
-icon: url
+name: panel.blocks.jumpmark.name
+icon: anchor
 fields:
   id:
-    label: field.blocks.jumpmark.fields.id.label
+    label: panel.blocks.jumpmark.fields.id.label
     type: slug
     before: '#'
     required: true
-    help: field.blocks.jumpmark.fields.id.help
+    help: panel.blocks.jumpmark.fields.id.help

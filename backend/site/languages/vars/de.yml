@@ -50,6 +50,7 @@ panel.fieldsets.heroes.label: Heroes
 panel.fieldsets.links.label: Links
 panel.fieldsets.media.label: Medien
 panel.fieldsets.text.label: Text
+panel.fieldsets.matomo.label: Matomo Analytics
 
 # Files
 panel.files.default.label: Datei
@@ -135,9 +136,14 @@ panel.blocks.list.fields.style.label: Stil
 panel.blocks.list.fields.style.options.large.text: Größer
 panel.blocks.list.fields.style.options.default.text: Normal
 panel.blocks.list.fields.style.options.small.text: Kleiner
-field.blocks.jumpmark.name: Sprungmarke
-field.blocks.jumpmark.fields.id.label: Identifikator
-field.blocks.jumpmark.fields.id.help: Hier sollte ein für die Seite einzigartiger Name verwendet werden. Kleinschreibung und keine Leerzeichen.
+panel.blocks.matomo-optout.name: Matomo Opt-Out
+panel.blocks.matomo-optout.fields.blocks.label: Inhalt
+panel.blocks.matomo-optout.fields.optedinlabel.label: Label (Nutzer wird getracked)
+panel.blocks.matomo-optout.fields.optedoutlabel.label: Label (Nutzer wird nicht getracked)
+panel.blocks.jumpmark.name: Sprungmarke
+panel.blocks.jumpmark.fields.id.label: Identifikator
+panel.blocks.jumpmark.fields.id.help: Hier sollte ein für die Seite einzigartiger Name verwendet werden. Kleinschreibung und keine Leerzeichen.
+
 
 # Privacy Overlay
 privacy-overlay.message: Mit dem Ansehen des Videos laden Sie Inhalte von {provider}.
