@@ -14,7 +14,7 @@ module.exports = {
 	variables: false, // Remove unused css variables
 	dynamicAttributes: ["data-layout", "data-theme", "data-layout-spacebottom", "data-layout-spacetop", "data-layout-width", "data-style", "data-layout-verticalalign", "data-animation"],
 	safelist: {
-		standard: [/^block/, /^layout/, /^\[data-/, /^has-size-/, /^has-text-/],
+		standard: [/^block/, /^layout/, /^\[data-/, /^has-size-/, /^has-text-/, /^swup/, /^is-animating/, /^is-rendering/, /^is-changing/, /^is-leaving/, /^transition-/],
 		deep: [],
 		greedy: [],
 		keyframes: [],
