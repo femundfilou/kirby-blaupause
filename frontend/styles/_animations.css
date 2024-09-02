@@ -1,0 +1,94 @@
+:root {
+  /* Standard eases */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Emphasized eases */
+  --ease-out-emphasized: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  --ease-in-out-emphasized: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* Playful ease */
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-jump: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Durations */
+  --animation-duration: 0.5s;
+  --animation-easing: var(--ease-out);
+}
+
+/* Base style for all animation */
+[data-animation].ready {
+  transition: all var(--animation-duration) var(--animation-easing);
+}
+
+/* Fade in up animation */
+[data-animation="fade-in-up"] {
+  transform: translateY(1.5rem);
+  opacity: 0;
+
+  &.animated {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade in left animation */
+[data-animation="fade-in-left"] {
+  transform: translateX(-1.5rem);
+  opacity: 0;
+
+  &.animated {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Scale in animation */
+[data-animation="scale-in"] {
+  transform: scale(0.9);
+  opacity: 0;
+
+  &.animated {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Words Up Animation, needs data-animation-prepare=["split-words"] */
+[data-animation="words-up"] {
+  opacity: 1;
+
+  >span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(1em);
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  }
+
+  &.animated>span {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--delay, 0s) + 0.2s);
+  }
+}
+
+
+/* Clip reveal animation,  needs data-animation-prepare=["split-words"] */
+[data-animation="clip-reveal"] {
+  opacity: 1;
+
+  >span {
+    display: inline-block;
+    transform: translate3d(0, 1em, 0);
+    clip-path: inset(100% 0 0 0);
+    will-change: clip-path;
+    transition: transform var(--animation-duration) var(--ease-out), clip-path var(--animation-duration) var(--ease-out);
+
+  }
+
+  &.animated>span {
+    clip-path: inset(0 0 0 0);
+    transform: translate3d(0, 0, 0);
+    transition-delay: calc(var(--delay, 0s) + 0.2s);
+  }
+}

@@ -15,7 +15,7 @@ interface SwupManagerOptions {
  * @remarks Uses DebugService for logging
  */
 class SwupManager {
-  private swup: Swup;
+  public swup: Swup;
   private scriptInstances: any[] = [];
   private addedScripts: HTMLScriptElement[] = [];
 

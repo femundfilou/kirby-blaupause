@@ -1,6 +1,8 @@
 import SwupManager from '../services/SwupManager';
 import SwupA11yPlugin from "@swup/a11y-plugin";
 import SwupHeadPlugin from "@swup/head-plugin";
+import ScrollAnimations from '../services/ScrollAnimations';
+import SplitWords from '../services/SplitWords';
 
 export const install = () => {
 
@@ -9,5 +11,15 @@ export const install = () => {
     plugins: [new SwupA11yPlugin(), new SwupHeadPlugin({ persistTags: "style" })]
   };
 
-  new SwupManager(options);
+  const manager = new SwupManager(options);
+
+  manager.swup.hooks.on('page:view', (visit) => {
+    ScrollAnimations.getInstance();
+    new SplitWords();
+  });
+
+  manager.swup.hooks.on('content:replace', () => {
+    const animations = ScrollAnimations.getInstance();
+    animations.destroy();
+  });
 }

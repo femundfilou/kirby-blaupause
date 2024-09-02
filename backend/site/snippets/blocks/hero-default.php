@@ -12,7 +12,7 @@ $assetManager->add('css', vite()->asset('frontend/styles/blocks/hero-default.css
 	<div class="container">
 		<div class="columns">
 			<div class="column">
-				<h1 class="title has-size-1"><?= $block->heading(); ?></h1>
+				<h1 class="title has-size-1" data-animation-prepare="split-words" data-animation="words-up"><?= $block->heading(); ?></h1>
 			</div>
 		</div>
 	</div>
