@@ -9,9 +9,11 @@ export default class extends Renderer {
 		ScrollAnimations.getInstance()
 		new SplitWords()
 	}
+	onLeaveCompleted(): void {
+		this.remove()
+	}
 
 	onEnterCompleted() {
-		this.remove()
 		lazyLoad()
 		new SplitWords()
 		ScrollAnimations.reinitialize()
