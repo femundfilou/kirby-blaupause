@@ -1,16 +1,15 @@
 .block-type-button {
-  display: flex;
+	display: flex;
 
-  & [data-alignment="left"] {
-    margin-right: auto;
-  }
+	& [data-alignment="left"] {
+		margin-right: auto;
+	}
 
-  & [data-alignment="centered"] {
-    margin-inline: auto;
-  }
+	& [data-alignment="centered"] {
+		margin-inline: auto;
+	}
 
-  & [data-alignment="right"] {
-    margin-left: auto;
-  }
-
+	& [data-alignment="right"] {
+		margin-left: auto;
+	}
 }

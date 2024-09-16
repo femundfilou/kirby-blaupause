@@ -1,3 +1,3 @@
 export const install = () => {
-  document.documentElement.classList.remove('no-js');
+	document.documentElement.classList.remove("no-js")
 }

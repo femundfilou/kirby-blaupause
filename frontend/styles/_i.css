@@ -1,15 +1,15 @@
 .i {
-  display: inline-flex;
-  width: var(--size);
-  height: var(--size);
-  align-items: stretch;
-  justify-content: stretch;
+	display: inline-flex;
+	width: var(--size);
+	height: var(--size);
+	align-items: stretch;
+	justify-content: stretch;
 
-  & svg {
-    width: 100%;
+	& svg {
+		width: 100%;
 
-    & use {
-      fill: transparent;
-    }
-  }
+		& use {
+			fill: transparent;
+		}
+	}
 }

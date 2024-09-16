@@ -1,65 +1,89 @@
+import DebugService from "./DebugService"
 /**
  * Manages scroll-based animations for elements
  * @remarks Uses IntersectionObserver for performance reasons
  */
 export default class ScrollAnimations {
-  private static instance: ScrollAnimations | null;
-  private observer: IntersectionObserver;
-  private animatedElements: Set<Element>;
+	private static instance: ScrollAnimations | null
+	private observer: IntersectionObserver
+	private animatedElements: Set<Element>
 
-  private constructor() {
-    this.animatedElements = new Set();
-    this.observer = new IntersectionObserver(this.handleIntersection, {
-      rootMargin: '0px 0px -10% 0px',
-      threshold: 0.1
-    });
+	private constructor() {
+		this.animatedElements = new Set()
+		this.observer = new IntersectionObserver(this.handleIntersection, {
+			rootMargin: "0px 0px -10% 0px",
+			threshold: 0.1
+		})
 
-    this.init();
-  }
+		this.init()
+	}
 
-  /**
-   * Gets the singleton instance of ScrollAnimations
-   */
-  public static getInstance(): ScrollAnimations {
-    return this.instance ??= new ScrollAnimations();
-  }
+	/**
+	 * Gets the singleton instance of ScrollAnimations
+	 */
+	public static getInstance(): ScrollAnimations {
+		if (!ScrollAnimations.instance) {
+			ScrollAnimations.instance = new ScrollAnimations()
+		}
+		return ScrollAnimations.instance
+	}
 
-  /**
-   * Initializes animations for elements with data-animation attribute
-   */
-  public init(): void {
-    document.querySelectorAll('[data-animation]').forEach(element => {
-      element.classList.add('ready');
-      this.observer.observe(element);
-      this.animatedElements.add(element);
-    });
-  }
+	/**
+	 * Initializes animations for elements with data-animation attribute
+	 */
+	public init(): void {
+		const elements = document.querySelectorAll("[data-animation]")
+		for (const element of elements) {
+			this.addElement(element)
+		}
+	}
 
-  /**
-   * Cleans up animations and resets the instance
-   */
-  public destroy(): void {
-    this.observer.disconnect();
-    this.animatedElements.forEach(element => {
-      element.classList.remove('animated', 'ready');
-    });
-    this.animatedElements.clear();
-    ScrollAnimations.instance = null;
-  }
+	/**
+	 * Adds a new element to the observer
+	 * @param element - The element to add
+	 */
+	public addElement(element: Element): void {
+		DebugService.log("Adding element to ScrollAnimations", element)
+		element.classList.add("ready")
+		this.observer.observe(element)
+		this.animatedElements.add(element)
+	}
 
-  /**
-   * Handles intersection events for observed elements
-   */
-  private handleIntersection = (entries: IntersectionObserverEntry[]): void => {
-    entries.forEach(({ isIntersecting, target }) => {
-      if (isIntersecting) {
-        const element = target as HTMLElement;
-        const delay = parseFloat(element.dataset.delay || '0') * 1000;
+	/**
+	 * Adds multiple elements to the observer
+	 * @param elements - The elements to add
+	 */
+	public addElements(elements: Element[] | NodeListOf<Element>): void {
+		for (const element of elements) {
+			this.addElement(element)
+		}
+	}
 
-        setTimeout(() => element.classList.add('animated'), delay);
-        this.observer.unobserve(element);
-        this.animatedElements.delete(element);
-      }
-    });
-  }
+	/**
+	 * Cleans up animations and resets the instance
+	 */
+	public destroy(): void {
+		this.observer.disconnect()
+		for (const element of this.animatedElements) {
+			element.classList.remove("animated", "ready")
+		}
+		this.animatedElements.clear()
+		ScrollAnimations.instance = null
+	}
+
+	/**
+	 * Handles intersection events for observed elements
+	 */
+	private handleIntersection = (entries: IntersectionObserverEntry[]): void => {
+		for (const { isIntersecting, target } of entries) {
+			if (isIntersecting) {
+				const element = target as HTMLElement
+				const delay = Number.parseFloat(element.dataset.delay || "0") * 1000
+				setTimeout(() => element.classList.add("animated"), delay)
+				this.observer.unobserve(element)
+				this.animatedElements.delete(element)
+				DebugService.log("Element animated", element)
+			}
+		}
+	}
 }

@@ -3,13 +3,13 @@
 use Kirby\Cms\Html;
 
 /**
- *  @var \Kirby\Cms\Block $block 
+ *  @var \Kirby\Cms\Block $block
  *  @var \Femundfilou\AssetManager\AssetManager $assetManager
- * 
+ *
  */
 
 $assetManager->add('css', vite()->asset('frontend/styles/blocks/video.css'));
-$assetManager->add('js', vite()->asset('frontend/blocks/video.ts'), ['data-swup-script', 'type' => 'module']);
+$assetManager->add('js', vite()->asset('frontend/blocks/video.ts'), ['data-taxi-reload', 'type' => 'module']);
 
 
 $crop    = $block->crop()->isTrue();
@@ -22,16 +22,21 @@ if ($ratio != 'auto' && $crop) {
 	// Use first item of array as initial value
 	$initialValue = array_shift($ratioArray);
 	// Reduce array by division to get a crop factor, e.g. 0.5625
-	$cropFactor = array_reduce($ratioArray, fn ($r, $v) => $v == 0 ? $r : ($r / $v), $initialValue);
+	$cropFactor = array_reduce($ratioArray, fn($r, $v) => $v == 0 ? $r : ($r / $v), $initialValue);
 }
 
 $thumbConfig = $cropFactor !== 0 ? ['width' => 1920, 'height' => 1920 * $cropFactor, 'crop' => true, 'quality' => 90] : ['width' => 1920, 'quality' => 90];
 $poster = $block->poster()->toFile() ? $block->poster()->toFile()->thumb($thumbConfig)->url() : "";
 ?>
 
-<figure data-message="<?= t('privacy-overlay.message') ?>" data-button-text="<?= t('privacy-overlay.button') ?>" style="--aspect-ratio: <?= $ratio ?>; <?= $crop ? '--object-fit: cover' : '--object-fit: contain'; ?>">
+<figure style="--aspect-ratio: <?= $ratio ?>; <?= $crop ? '--object-fit: cover' : '--object-fit: contain'; ?>">
 	<?php if ($block->external()->toBool()) : ?>
-		<?= Html::video($block->url(), [], ['data-src' => $block->url(), 'src' => '']); ?>
+		<privacy-video
+			poster="<?= $poster ?>"
+			message="<?= t('privacy-overlay.message') ?>"
+			button-text="<?= t('privacy-overlay.button') ?>">
+			<?= Html::video($block->url(), [], ['data-src' => $block->url(), 'src' => '']); ?>
+		</privacy-video>
 	<?php else : ?>
 		<video <?= e($block->loop()->toBool(), 'autoplay muted loop', 'controls') ?> playsinline <?= e($poster, 'poster="' . $poster . '"'); ?>>
 			<?php foreach ($block->sources()->toFiles() as $video) : ?>

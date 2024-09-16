@@ -1,7 +1,7 @@
-import "./assets/panel/favicon-dev.svg";
 import "cleacss/css";
 import "./index.css"
 import DebugService from "./services/DebugService";
+import.meta.glob(["./assets/**", "!./assets/svg/**"])
 
 /**
  * Installs modules from the './lib' directory

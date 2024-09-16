@@ -4,7 +4,7 @@
 This template is a starter for new projects, mainly developed out of personal needs and inspired by the awesome [Kirby Baukausten](https://github.com/tobimori/kirby-baukasten). It's based on the tools and technologies we work with and might be an inspiration for others.
 
 ## Frontend setup
-The frontend uses [pnpm](https://pnpm.io), is built using [Vite]([https://vitejs.](https://vitejs.dev/)) with [lightingcss](https://lightningcss.dev/) as css transformer and minifier. [cleacss](https://cleacss.dev) is preinstalled as css framework. Scripts are handled by Typescript, [svelte](https://svelte.dev) and [swup](https://swup.js.org) are preconfigured if needed.
+The frontend uses [pnpm](https://pnpm.io), is built using [Vite]([https://vitejs.](https://vitejs.dev/)) with [lightingcss](https://lightningcss.dev/) as css transformer and minifier. [cleacss](https://cleacss.dev) is preinstalled as css framework. Scripts are handled by Typescript, [svelte](https://svelte.dev) and [taxi](https://taxi.js.org) are preconfigured if needed.
 
 ## Preinstalled plugins
 - distantnative/retour-for-kirby
@@ -14,6 +14,10 @@ The frontend uses [pnpm](https://pnpm.io), is built using [Vite]([https://vitejs
 - getkirby/staticache
 - lukaskleinschmidt/kirby-laravel-vite
 - tobimori/kirby-seo
+- genxbe/kirby3-ray
+- johannschopplich/kirby-plausible
+- bnomei/kirby3-dotenv
+
 
 ## Prebuild blocks
 This template comes with some prebuild blocks and block extensions.

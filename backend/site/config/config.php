@@ -3,27 +3,33 @@
 return [
 	"cache" => [
 		"pages" => [
-			"active" => true,
+			"active" => json_decode(env('ENABLE_CACHE', 'true')),
 			"type"   => "static",
 			"headers" => true,
 			"ignore" => function ($page) {
-				return in_array($page->intendedTemplate()->name(), ["thanks", "error"]);
+				return in_array($page->intendedTemplate()->name(), ["error"]);
 			},
 		],
 	],
 	"date"  => [
 		"handler" => "intl"
 	],
-	"distantnative.retour.config" => fn () => kirby()->root('redirects'),
-	"debug" => false,
+	"distantnative.retour.config" => fn() => kirby()->root('redirects'),
+	"debug" => json_decode(env('ENABLE_DEBUG', 'false')),
+	"johannschopplich.plausible" => [
+		'sharedLink' => env('PLAUSIBLE_SHARED_LINK', '')
+		// Only needed if the frontend URL differs from the index URL of the Kirby instance
+		// 'domain' => '<your-frontend-domain>'
+	],
 	"languages" => true,
-	"ready" => fn () => [
+	"ready" => fn() => [
 		"panel" => [
 			"css" => vite("frontend/panel.css"),
 			"favicon" => vite()->asset("frontend/assets/panel/favicon-dev.svg"),
 			'menu' => [
 				'site' => \Femundfilou\Menu\Menu::site('Dashboard', 'dashboard'),
 				'-',
+				'plausible',
 				'retour',
 				'-',
 				'users',
@@ -32,31 +38,22 @@ return [
 			],
 		],
 	],
-	"routes" => [
-		/*
-		* Route for translations
-		* Intended to be used with svelte-i18n
-		[
-			"pattern" => "/v1/translations/(:alpha)",
-			"method" => "GET",
-			"action" => function ($lang) {
-				try {
-					$translations = kirby()->language($lang)?->translations();
-					if (!$translations) throw new Exception("No translations found for "$lang".", 404);
-					return Response::json(
-						$translations,
-						200
-					);
-				} catch (Exception $e) {
-					return Response::json(
-						$e->getMessage(),
-						$e->getCode()
-					);
-				}
-			},
-		],
-	*/],
+	'routes' => require_once __DIR__ . '/routes.php',
 	'tobimori.seo' => [
-		'robots.indicator' => false
+		'files.template' => 'image',
+		'sitemap' =>  [
+			'active' => true,
+			'excludeTemplates' => ['error']
+		],
+		'robots' => [
+			'indicator' => false,
+			'active' => true,
+			'content' => [
+				'*' => [
+					'Allow' => ['/'],
+					'Disallow' => ['/kirby', '/panel', '/content']
+				]
+			]
+		]
 	]
 ];

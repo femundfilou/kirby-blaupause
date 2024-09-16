@@ -1,14 +1,21 @@
 <?php
 
 use Kirby\Cms\App;
-use Dotenv\Dotenv;
+
+// Disable dump to be used with ray
+define("KIRBY_HELPER_DUMP", false);
 
 $base = __DIR__;
 $storage = dirname(__DIR__) . '/storage/kirby-blaupause.test';
 $backend = dirname(__DIR__) . '/backend';
 require $backend . '/kirby/bootstrap.php';
-$dotenv = Dotenv::createImmutable($backend);
-$dotenv->safeLoad();
+
+require_once $backend . '/site/plugins/kirby3-dotenv/global.php';
+
+loadenv([
+	'dir' => realpath($backend),
+	'file' => '.env',
+]);
 
 /**
  * Use Staticache location

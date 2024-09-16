@@ -1,18 +1,18 @@
 ul.menu {
-  display: flex;
-  gap: 1em;
+	display: flex;
+	gap: 1em;
 
-  & li {
-    border-bottom: 2px solid transparent;
+	& li {
+		border-bottom: 2px solid transparent;
 
-    & a {
-      font-size: var(--clea-size-6);
-      font-weight: var(--clea-font-weight-bold);
-      line-height: 1;
-    }
+		& a {
+			font-size: var(--clea-size-6);
+			font-weight: var(--clea-font-weight-bold);
+			line-height: 1;
+		}
 
-    &.is-active {
-      border-color: var(--clea-base-color);
-    }
-  }
+		&.is-active {
+			border-color: var(--clea-base-color);
+		}
+	}
 }
