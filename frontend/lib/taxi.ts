@@ -15,14 +15,14 @@ const createModuleRecord = <T>(imports: Record<string, { default: T }>, keyPrefi
 
 DebugService.log("Initializing Taxi")
 
-const rendererImports = import.meta.glob<{ default: typeof Renderer }>("./renderers/*.ts", { eager: true })
-const transitionImports = import.meta.glob<{ default: typeof Transition }>("./transitions/*.ts", { eager: true })
+const rendererImports = import.meta.glob<{ default: typeof Renderer }>("../renderers/*.ts", { eager: true })
+const transitionImports = import.meta.glob<{ default: typeof Transition }>("../transitions/*.ts", { eager: true })
 
 window.Taxi = new Core({
-	renderers: createModuleRecord(rendererImports, "./renderers/"),
-	transitions: createModuleRecord(transitionImports, "./transitions/"),
+	renderers: createModuleRecord(rendererImports, "../renderers/"),
+	transitions: createModuleRecord(transitionImports, "../transitions/"),
 	allowInterruption: true,
-	removeOldContent: true
+	removeOldContent: false
 })
 
 DebugService.log("Taxi initialized")
