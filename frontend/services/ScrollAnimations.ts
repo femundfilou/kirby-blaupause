@@ -1,4 +1,5 @@
 import DebugService from "./DebugService"
+
 /**
  * Manages scroll-based animations for elements
  * @remarks Uses IntersectionObserver for performance reasons
@@ -69,6 +70,18 @@ export default class ScrollAnimations {
 		}
 		this.animatedElements.clear()
 		ScrollAnimations.instance = null
+	}
+
+	/**
+	 * Reinitializes the ScrollAnimations instance
+	 * @remarks Useful for reinitializing animations after DOM changes
+	 */
+	public static reinitialize(): void {
+		if (ScrollAnimations.instance) {
+			ScrollAnimations.instance.destroy()
+		}
+		ScrollAnimations.instance = new ScrollAnimations()
+		DebugService.log("ScrollAnimations reinitialized")
 	}
 
 	/**

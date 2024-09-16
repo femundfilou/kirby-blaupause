@@ -13,7 +13,7 @@ export default class extends Renderer {
 	onEnterCompleted() {
 		this.remove()
 		lazyLoad()
-		ScrollAnimations.getInstance()
 		new SplitWords()
+		ScrollAnimations.reinitialize()
 	}
 }
