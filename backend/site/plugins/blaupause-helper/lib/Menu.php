@@ -4,6 +4,7 @@ namespace Femundfilou\Menu;
 
 use Closure;
 use Kirby\Cms\App;
+use Kirby\Toolkit\Str;
 
 class Menu
 {
@@ -18,12 +19,15 @@ class Menu
 
 	public static function page(string $label, string $icon = null, string $link = null, Closure|bool $current = null): array
 	{
+
+		$panelLink = Str::startsWith($link, 'page://') ? page($link)->panel()->url(true) : $link;
+
 		return static::$pages[] = [
 			'label'   => $label,
-			'link'    => $link,
+			'link'    => $panelLink,
 			'icon'    => $icon,
-			'current' => $current ?? fn () =>
-			str_contains(static::path(), $link)
+			'current' => $current ?? fn() =>
+			str_contains(static::path(), $panelLink)
 		];
 	}
 
