@@ -8,7 +8,7 @@
     "dev": "concurrently -n svelte,vite 'pnpm:check' 'vite'",
     "build": "vite build; pnpm css:purge",
     "css:purge": "node scripts/purgecss.js",
-    "icons:build": "node scripts/svg-sprite.js -i frontend/assets/svg/ -o public/icons.svg",
+    "icons:build": "node scripts/svg-sprite.js -i frontend/assets/svg/ -o public/icons.svg -p blaupause",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "blocks:dev": "pnpm --filter blaupause-block-previews dev",
     "blocks:build": "pnpm --filter blaupause-block-previews build",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@unseenco/taxi": "^1.6.0",
-    "cleacss": "1.0.0-beta.2",
+    "cleacss": "1.0.0-beta.4",
     "htmx.org": "^1.9.12",
     "unlazy": "^0.11.3"
   },

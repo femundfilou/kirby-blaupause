@@ -12,8 +12,8 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0
       cleacss:
-        specifier: 1.0.0-beta.2
-        version: 1.0.0-beta.2
+        specifier: 1.0.0-beta.4
+        version: 1.0.0-beta.4
       htmx.org:
         specifier: ^1.9.12
         version: 1.9.12
@@ -769,8 +769,8 @@ packages:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
     engines: {node: '>=8'}
 
-  cleacss@1.0.0-beta.2:
-    resolution: {integrity: sha512-hqVLu2vm2kGyZLAmgVnpnBLGmNtRH1sSZjzzGUFasH/kFLlbM1BONyqAeriAs9fp7SxxR/UTHLgMnDm3eP+qTA==}
+  cleacss@1.0.0-beta.4:
+    resolution: {integrity: sha512-PW6Kr4kfeX+RZppT5R2RmccThwwjzVsgkSoAz/LO/NTDShKUnXK1dPpTp1uta8E9DDvk7EaWQtxm0KKXbtFR9g==}
 
   cli-boxes@3.0.0:
     resolution: {integrity: sha512-/lzGpEWL/8PfI0BmBOPRwp0c/wFNX1RdUML3jK/RcSBA9T8mZDdQpqYBKtCFTOfQbwPqWEOpjqW+Fnayc0969g==}
@@ -3031,7 +3031,7 @@ snapshots:
 
   ci-info@3.9.0: {}
 
-  cleacss@1.0.0-beta.2: {}
+  cleacss@1.0.0-beta.4: {}
 
   cli-boxes@3.0.0: {}
 
