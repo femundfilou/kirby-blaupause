@@ -23,7 +23,7 @@
 
 		& figcaption {
 			padding: var(--clea-size-7) var(--clea-size-6) 0 var(--clea-size-6);
-			font-family: cssvar(font-family-sans);
+			font-family: var(--clea-font-family);
 		}
 	}
 
@@ -42,6 +42,7 @@
 			grid-column: 1 / -1;
 			position: relative;
 			z-index: 2;
+
 			& img {
 				border-radius: var(--clea-border-radius);
 				position: absolute;
@@ -50,6 +51,7 @@
 				object-fit: cover;
 			}
 		}
+
 		& .privacy-overlay__content {
 			grid-row: 1 / -1;
 			grid-column: 1 / -1;
