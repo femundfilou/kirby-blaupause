@@ -5,3 +5,4 @@ fieldsets:
   - text
   - list
   - quote
+  - spacer

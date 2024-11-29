@@ -143,6 +143,8 @@ panel.blocks.matomo-optout.fields.optedoutlabel.label: Label (Nutzer wird nicht 
 panel.blocks.jumpmark.name: Sprungmarke
 panel.blocks.jumpmark.fields.id.label: Identifikator
 panel.blocks.jumpmark.fields.id.help: Hier sollte ein für die Seite einzigartiger Name verwendet werden. Kleinschreibung und keine Leerzeichen.
+panel.blocks.spacer.name: Abstand
+panel.blocks.spacer.fields.height.label: Höhe
 
 
 # Privacy Overlay

@@ -1,8 +1,8 @@
-name: Abstand
+name: panel.blocks.spacer.name
 icon: divider
 fields:
   height:
-    label: Größe
+    label: panel.blocks.spacer.fields.height.label
     type: range
     min: 0.25
     after: rem
