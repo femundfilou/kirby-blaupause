@@ -4,9 +4,8 @@ fields:
   height:
     label: panel.blocks.spacer.fields.height.label
     type: range
-    min: 0.25
-    after: rem
-    step: 0.25
-    max: 6
-    default: 1.25
+    min: 1
+    step: 1
+    max: 7
+    default: 1
     required: true

@@ -19,25 +19,7 @@ fields:
       - value: "large"
         text:
           *: panel.blocks.text.fields.style.options.large.text
-  alignment:
-    label: panel.blocks.text.fields.alignment.label
-    type: toggles
-    grow: false
-    default: "left"
-    empty: false
-    options:
-      - value: "left"
-        text:
-          *: panel.blocks.text.fields.alignment.options.left.text
-        icon: text-left
-      - value: "centered"
-        text:
-          *: panel.blocks.text.fields.alignment.options.centered.text
-        icon: text-center
-      - value: "right"
-        text:
-          *: panel.blocks.text.fields.alignment.options.right.text
-        icon: text-right
+  alignment: fields/alignment
   text:
     extends: fields/writer
     inline: false

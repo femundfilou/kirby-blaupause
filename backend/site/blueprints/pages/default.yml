@@ -3,7 +3,6 @@ options: permissions/default
 status:
   draft: panel.page.status.draft.label
   unlisted: panel.page.status.unlisted.label
-  listed: panel.page.status.listed.label
 tabs:
   content:
     icon: text
@@ -15,5 +14,5 @@ tabs:
           hero: fields/hero
           main:
             extends: fields/layouts
-  files: tabs/files
+  subpages: tabs/subpages
   seo: seo/page

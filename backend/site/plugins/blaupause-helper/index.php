@@ -1,8 +1,12 @@
 <?php
 
 use Kirby\Template\Snippet;
+use Kirby\Toolkit\V;
+use Kirby\Filesystem\F;
+use Kirby\Toolkit\Str;
+use Kirby\Toolkit\Dom;
 
-Kirby\Filesystem\F::loadClasses([
+F::loadClasses([
 	'femundfilou\\menu\\menu' => 'lib/Menu.php'
 ], __DIR__);
 
@@ -17,4 +21,132 @@ function icon(string $name, string $size = '1em')
 	return snippet('icon', ['name' => $name, 'size' => $size], true);
 }
 
-Kirby\Cms\App::plugin('femundfilou/blaupause-helper', []);
+Kirby\Cms\App::plugin('femundfilou/blaupause-helper', [
+	'fieldMethods' => [
+		'convertShy' => function (Kirby\Content\Field $field) {
+			return Str::replace($field, '&amp;', '&');
+		},
+		/**
+		 * Adds animation props to list items
+		 * @param string $animation Animation type
+		 * @return string Modified HTML
+		 */
+		'addListAnimation' => function (Kirby\Content\Field $field, string $animation = 'fade-in-up'): string {
+			$dom = new Dom($field->value());
+
+			$listItems = $dom->query('//li');
+			foreach ($listItems as $index => $li) {
+				if ($li instanceof \DOMElement) {
+					$li->setAttribute('data-animation', $animation);
+				}
+			}
+
+			return $dom->toString();
+		}
+	],
+	'blockMethods' => [
+		'getWidthClass' => function () {
+			$classMap = [
+				'default' => 'span-content',
+				'full' => 'span-full'
+			];
+
+			if ($this->width()->isNotEmpty()) {
+				$value = $this->width()->value();
+				if (isset($classMap[$value]) && !empty($classMap[$value])) {
+					return $classMap[$value];
+				}
+			}
+
+			return 'span-content';
+		},
+
+		'getTextAlignClass' => function () {
+			$classMap = [
+				'left' => 'has-text-left',
+				'center' => 'has-text-center',
+				'right' => 'has-text-right',
+				'justify' => 'has-text-justify'
+			];
+
+			if ($this->textalign()->isNotEmpty()) {
+				$value = $this->textalign()->value();
+				if (isset($classMap[$value]) && !empty($classMap[$value])) {
+					return $classMap[$value];
+				}
+			}
+
+			return 'has-text-left';
+		},
+
+		'getVerticalAlignClass' => function () {
+			$classMap = [
+				'top' => 'has-justify-start',
+				'bottom' => 'has-justify-end',
+				'center' => 'has-justify-center',
+				'stretch' => 'has-justify-stretch'
+			];
+
+			if ($this->verticalalign()->isNotEmpty()) {
+				$value = $this->verticalalign()->value();
+				if (isset($classMap[$value]) && !empty($classMap[$value])) {
+					return $classMap[$value];
+				}
+			}
+
+			return 'has-justify-start';
+		},
+
+		'getSpaceTopClass' => function () {
+			$classMap = [
+				'none' => 'has-gap-collapse',
+				'small' => 'has-mt-l',
+				'medium' => 'has-mt-2xl-3xl',
+				'large' => 'has-mt-2xl-4xl'
+			];
+
+			if ($this->spacetop()->isNotEmpty()) {
+				$value = $this->spacetop()->value();
+				if (isset($classMap[$value]) && !empty($classMap[$value])) {
+					return $classMap[$value];
+				}
+			}
+
+			return '';
+		},
+
+		'getSpaceBottomClass' => function () {
+			$classMap = [
+				'none' => '',
+				'small' => 'has-mb-l',
+				'medium' => 'has-mb-2xl-3xl',
+				'large' => 'has-mb-2xl-4xl'
+			];
+
+			if ($this->spacebottom()->isNotEmpty()) {
+				$value = $this->spacebottom()->value();
+				if (isset($classMap[$value]) && !empty($classMap[$value])) {
+					return $classMap[$value];
+				}
+			}
+
+			return '';
+		},
+		'getAllAlignmentClasses' => function () {
+			return implode(' ', [
+				$this->getWidthClass(),
+				$this->getTextAlignClass(),
+				$this->getVerticalAlignClass(),
+				$this->getSpaceTopClass(),
+				$this->getSpaceBottomClass()
+			]);
+		}
+	],
+	'pageMethods' => [
+		'mediaPage' => function () {
+			$mediaPage = page('page://globalmedia');
+			if (!V::in($this->intendedTemplate(), [])) return $mediaPage ?? $this;
+			return $this;
+		},
+	]
+]);

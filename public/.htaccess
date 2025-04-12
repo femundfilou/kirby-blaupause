@@ -1,77 +1,293 @@
-# Kirby .htaccess
-# revision 2023-07-22
+# ----------------------------------------------------------------------
+# | Kirby Rewrite Rules                                               |
+# ----------------------------------------------------------------------
 
-# rewrite rules
 <IfModule mod_rewrite.c>
+    # Enable URL rewriting
+    RewriteEngine On
 
-# enable awesome urls. i.e.:
-# http://yourdomain.com/about-us/team
-RewriteEngine on
+    # Set RewriteBase if site is in a subfolder
+    # If homepage is http://yourdomain.com/mysite, use: RewriteBase /mysite
+    # For root domains, use: RewriteBase /
+    # RewriteBase /
 
-# make sure to set the RewriteBase correctly
-# if you are running the site in a subfolder;
-# otherwise links or the entire site will break.
-#
-# If your homepage is http://yourdomain.com/mysite,
-# set the RewriteBase to:
-#
-# RewriteBase /mysite
+    # Force non-www and remove trailing slashes
+    # ----------------------------------------------------------------------
+    # Redirect www to non-www
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ %{REQUEST_SCHEME}://%1%{REQUEST_URI} [R=301,L]
 
-# In some environments it's necessary to
-# set the RewriteBase to:
-#
-# RewriteBase /
+    # Remove trailing slash
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
 
-# Staticache
-RewriteCond %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI}/index.html -f [NC]
-RewriteRule ^(.*) %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI}/index.html [END]
-RewriteCond %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI} -f [NC]
-RewriteRule ^(.*) %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI} [END]
+    # Staticache
+    # ----------------------------------------------------------------------
+    # RewriteCond %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI}/index.html -f [NC]
+    # RewriteRule ^(.*) %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI}/index.html [END]
+    # RewriteCond %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI} -f [NC]
+    # RewriteRule ^(.*) %{DOCUMENT_ROOT}/cache/%{SERVER_NAME}/pages/%{REQUEST_URI} [END]
 
-# block files and folders beginning with a dot, such as .git
-# except for the .well-known folder, which is used for Let's Encrypt and security.txt
-RewriteRule (^|/)\.(?!well-known\/) index.php [L]
+    # Block access to sensitive files and directories
+    # ----------------------------------------------------------------------
+    # Block access to dotfiles except .well-known
+    RewriteRule (^|/)\.(?!well-known\/) index.php [L]
 
-# block all files in the content folder from being accessed directly
-RewriteRule ^content/(.*) index.php [L]
+    # Block direct access to content directory
+    RewriteRule ^content/(.*) index.php [L]
 
-# block all files in the site folder from being accessed directly
-RewriteRule ^site/(.*) index.php [L]
+    # Block direct access to site directory
+    RewriteRule ^site/(.*) index.php [L]
 
-# block direct access to Kirby and the Panel sources
-RewriteRule ^kirby/(.*) index.php [L]
+    # Block direct access to Kirby core
+    RewriteRule ^kirby/(.*) index.php [L]
 
-# make site links work
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*) index.php [L]
-
+    # Route all non-file/directory requests to index.php
+    # ----------------------------------------------------------------------
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*) index.php [L]
 </IfModule>
 
-# pass the Authorization header to PHP
+# ----------------------------------------------------------------------
+# | Authentication                                                     |
+# ----------------------------------------------------------------------
+
+# Pass the Authorization header to PHP
 SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
 
-# compress text file responses
-<IfModule mod_deflate.c>
-AddOutputFilterByType DEFLATE text/plain
-AddOutputFilterByType DEFLATE text/html
-AddOutputFilterByType DEFLATE text/css
-AddOutputFilterByType DEFLATE text/javascript
-AddOutputFilterByType DEFLATE application/json
-AddOutputFilterByType DEFLATE application/javascript
-AddOutputFilterByType DEFLATE application/x-javascript
-</IfModule>
+# ----------------------------------------------------------------------
+# | Security Headers                                                   |
+# ----------------------------------------------------------------------
 
-# set security headers in all responses
 <IfModule mod_headers.c>
+    # Protect against XSS attacks
+    Header set X-XSS-Protection "1; mode=block"
 
-# serve files as plain text if the actual content type is not known
-# (hardens against attacks from malicious file uploads)
-Header set Content-Type "text/plain" "expr=-z %{CONTENT_TYPE}"
-Header set X-Content-Type-Options "nosniff"
+    # Prevent clickjacking
+    Header set X-Frame-Options "SAMEORIGIN"
 
+    # Prevent MIME-type sniffing
+    Header set X-Content-Type-Options "nosniff"
+
+    # Force HTTPS
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+    # Control referrer information
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Restrict browser features
+    Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), payment=()"
+
+    # Content Security Policy
+    Header set Content-Security-Policy "default-src 'self'; font-src 'self' data:; img-src * data:; script-src * data: blob: 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+
+    # Serve files as plain text if content type is unknown (security measure)
+    Header set Content-Type "text/plain" "expr=-z %{CONTENT_TYPE}"
+
+    # Remove server signature
+    Header unset Server
+
+    # Remove ETag headers (when using expires)
+    Header unset ETag
 </IfModule>
 
-# <Directory "/var/www/your-site/site/cache">
-#   SetHandler send-as-is
-# </Directory>
+# ----------------------------------------------------------------------
+# | Cross-Origin Resource Sharing (CORS)                               |
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+    # Allow cross-origin images
+    <FilesMatch "\.(avif|bmp|cur|gif|ico|jpe?g|jxl|png|svgz?|webp)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+
+    # Allow cross-origin fonts
+    <FilesMatch "\.(eot|otf|tt[cf]|woff2?)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Compression                                                        |
+# ----------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+    # Enable compression for common file types
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    AddOutputFilterByType DEFLATE application/manifest+json
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/font-woff
+    AddOutputFilterByType DEFLATE application/font-woff2
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE font/opentype
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Browser Caching                                                    |
+# ----------------------------------------------------------------------
+
+# Disable ETags
+FileETag None
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+    # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+    # Data interchange
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rdf+xml                   "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/ld+json                   "access plus 0 seconds"
+    ExpiresByType application/schema+json               "access plus 0 seconds"
+    ExpiresByType application/vnd.geo+json              "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+    # Favicon and cursor images
+    ExpiresByType image/vnd.microsoft.icon              "access plus 1 week"
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+    # HTML - no caching for dynamic content
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+    # JavaScript
+    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/x-javascript              "access plus 1 year"
+    ExpiresByType text/javascript                       "access plus 1 year"
+
+    # Manifest files
+    ExpiresByType application/manifest+json             "access plus 1 week"
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+    # Media files - longer cache
+    ExpiresByType audio/ogg                             "access plus 1 year"
+    ExpiresByType image/avif                            "access plus 1 year"
+    ExpiresByType image/bmp                             "access plus 1 year"
+    ExpiresByType image/gif                             "access plus 1 year"
+    ExpiresByType image/jpeg                            "access plus 1 year"
+    ExpiresByType image/png                             "access plus 1 year"
+    ExpiresByType image/svg+xml                         "access plus 1 year"
+    ExpiresByType image/webp                            "access plus 1 year"
+    ExpiresByType image/jxl                             "access plus 1 year"
+    ExpiresByType video/mp4                             "access plus 1 year"
+    ExpiresByType video/ogg                             "access plus 1 year"
+    ExpiresByType video/webm                            "access plus 1 year"
+
+    # Web fonts
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 year"
+    ExpiresByType font/eot                              "access plus 1 year"
+    ExpiresByType font/opentype                         "access plus 1 year"
+    ExpiresByType application/x-font-ttf                "access plus 1 year"
+    ExpiresByType application/font-woff                 "access plus 1 year"
+    ExpiresByType application/x-font-woff               "access plus 1 year"
+    ExpiresByType font/woff                             "access plus 1 year"
+    ExpiresByType application/font-woff2                "access plus 1 year"
+
+    # Other
+    ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Media Types and Character Encodings                                |
+# ----------------------------------------------------------------------
+
+<IfModule mod_mime.c>
+    # Data interchange
+    AddType application/json                            json map topojson
+    AddType application/ld+json                         jsonld
+    AddType application/vnd.geo+json                    geojson
+    AddType application/xml                             atom rdf rss xml
+
+    # JavaScript
+    AddType application/javascript                      js mjs
+
+    # Manifest files
+    AddType application/manifest+json                   webmanifest
+    AddType application/x-web-app-manifest+json         webapp
+    AddType text/cache-manifest                         appcache
+
+    # Media files
+    AddType audio/mp4                                   f4a f4b m4a
+    AddType audio/ogg                                   oga ogg opus
+    AddType image/avif                                  avif
+    AddType image/bmp                                   bmp
+    AddType image/jxl                                   jxl
+    AddType image/svg+xml                               svg svgz
+    AddType image/webp                                  webp
+    AddType video/mp4                                   f4v f4p m4v mp4
+    AddType video/ogg                                   ogv
+    AddType video/webm                                  webm
+    AddType image/x-icon                                cur ico
+
+    # Web fonts
+    AddType application/font-woff                       woff
+    AddType application/font-woff2                      woff2
+    AddType application/vnd.ms-fontobject               eot
+    AddType application/x-font-ttf                      ttc ttf
+    AddType font/opentype                               otf
+
+    # Other
+    AddType application/octet-stream                    safariextz
+    AddType application/x-bb-appworld                   bbaw
+    AddType application/x-chrome-extension              crx
+    AddType application/x-opera-extension               oex
+    AddType application/x-xpinstall                     xpi
+    AddType text/vcard                                  vcard vcf
+    AddType text/vnd.rim.location.xloc                  xloc
+    AddType text/vtt                                    vtt
+    AddType text/x-component                            htc
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Character Encodings                                                |
+# ----------------------------------------------------------------------
+
+# Set default character set to UTF-8
+AddDefaultCharset utf-8
+
+<IfModule mod_mime.c>
+    # Serve the following file types with UTF-8 charset
+    AddCharset utf-8 .atom \
+                     .bbaw \
+                     .css \
+                     .geojson \
+                     .js \
+                     .json \
+                     .jsonld \
+                     .manifest \
+                     .mjs \
+                     .rdf \
+                     .rss \
+                     .topojson \
+                     .vtt \
+                     .webapp \
+                     .webmanifest \
+                     .xloc \
+                     .xml
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Error Documents                                                    |
+# ----------------------------------------------------------------------
+
+# ErrorDocument 404 /errors/404.html
+# ErrorDocument 500 /errors/500.html

@@ -1,14 +1,11 @@
-<?php
-$columnsReverse = $block->columnsreverse()->toBool();
-?>
-<div class="columns<?= e($columnsReverse, ' columns--reversed') ?>">
-	<div class="column column-12-tablet-only">
+<div class="subgrid span-content">
+	<div class="flow span-full span-4:m <?= $block->getVerticalAlignClass() ?>">
 		<?php snippet('page/blocks', ['blocks' => $block->blocksleft()]); ?>
 	</div>
-	<div class="column column-12-tablet-only">
+	<div class="flow span-full span-4:m <?= $block->getVerticalAlignClass() ?>">
 		<?php snippet('page/blocks', ['blocks' => $block->blockscenter()]); ?>
 	</div>
-	<div class="column column-12-tablet-only">
+	<div class="flow span-full span-4:m <?= $block->getVerticalAlignClass() ?>">
 		<?php snippet('page/blocks', ['blocks' => $block->blocksright()]); ?>
 	</div>
 </div>

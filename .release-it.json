@@ -1,26 +1,26 @@
 {
-  "git": {
-    "requireUpstream": false,
-    "push": false,
-    "tagName": "v${version}",
-    "commitMessage": "chore: release v${version}"
-  },
-  "npm": {
-    "publish": false
-  },
-  "github": {
-    "release": false
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "preset": "conventionalcommits",
-      "infile": "CHANGELOG.md"
-    },
-    "@release-it/bumper": {
-      "out": {
-        "file": "backend/site/config/env.php",
-        "type": "text/php"
-      }
-    }
-  }
+	"git": {
+		"requireUpstream": false,
+		"push": false,
+		"tagName": "v${version}",
+		"commitMessage": "chore: release v${version}"
+	},
+	"npm": {
+		"publish": false
+	},
+	"github": {
+		"release": false
+	},
+	"plugins": {
+		"@release-it/conventional-changelog": {
+			"preset": "conventionalcommits",
+			"infile": "CHANGELOG.md"
+		},
+		"@release-it/bumper": {
+			"out": {
+				"file": "backend/site/config/env.php",
+				"type": "text/php"
+			}
+		}
+	}
 }

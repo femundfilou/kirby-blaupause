@@ -8,8 +8,8 @@ if (!Str::endsWith($size, 'rem') && !Str::endsWith($size, 'em') && !Str::endsWit
 	$size = $size . "rem";
 }
 ?>
-<i class="i" style="--size: <?= $size ?>">
-	<svg>
-		<use xlink:href="/icons.svg#symbol-<?= $name ?>" />
+<i class="i" style="--size: <?= $size ?>" data-icon="<?= $name ?>">
+	<svg aria-hidden>
+		<use xlink:href="<?= $kirby->url() ?>/icons.svg#symbol-<?= $name ?>" />
 	</svg>
 </i>

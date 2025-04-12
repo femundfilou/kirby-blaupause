@@ -19,12 +19,12 @@
 
 <body data-template="<?= $page->intendedTemplate() ?>">
 	<div data-taxi>
-		<div data-taxi-view>
+		<div data-taxi-view class="grid">
 			<?php snippet('page/header') ?>
 
-			<main id="page" class="content">
+			<main id="page" class="subgrid span-full">
 				<?php if ($page->hero()->isNotEmpty()) : ?>
-					<?php snippet('page/blocks', ['blocks' => $page->hero()]); ?>
+					<?= $page->hero()->toBlocks() ?>
 				<?php endif; ?>
 				<?= $slot ?>
 			</main>

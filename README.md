@@ -1,7 +1,7 @@
 ![Kirby Blaupause – Kirby CMS Starter Kit](kirby-blaupause.png)
 # Kirby Blaupause – A Template for Kirby CMS
 
-This template is a starter for new projects, mainly developed out of personal needs and inspired by the awesome [Kirby Baukausten](https://github.com/tobimori/kirby-baukasten). It's based on the tools and technologies we work with and might be an inspiration for others.
+This template is a starter for new projects, mainly developed out of personal needs. It's based on the tools and technologies we work with and might serve as an inspiration to others.
 
 ## Frontend setup
 The frontend uses [pnpm](https://pnpm.io), is built using [Vite]([https://vitejs.](https://vitejs.dev/)) with [lightingcss](https://lightningcss.dev/) as css transformer and minifier. [cleacss](https://cleacss.dev) is preinstalled as css framework. Scripts are handled by Typescript, [svelte](https://svelte.dev) and [taxi](https://taxi.js.org) are preconfigured if needed.
@@ -17,6 +17,8 @@ The frontend uses [pnpm](https://pnpm.io), is built using [Vite]([https://vitejs
 - genxbe/kirby3-ray
 - johannschopplich/kirby-plausible
 - bnomei/kirby3-dotenv
+- timnarr/kirby-obfuscate-email
+- junohamburg/kirby-visual-block-selector
 
 
 ## Prebuild blocks

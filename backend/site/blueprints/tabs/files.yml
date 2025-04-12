@@ -4,18 +4,26 @@ sections:
   images:
     label: panel.sections.images.label
     type: files
-    layout: cardlets
+    layout: table
+    search: true
     size: tiny
     template: image
-    info: "© {{file.copyright.or('--')}}"
+    columns:
+      alt:
+        type: html
+        value: "{{file.alt.or('--')}}"
     empty: panel.sections.images.empty
   videos:
     label: panel.sections.videos.label
     type: files
+    layout: table
+    search: true
     template: video
     empty: panel.sections.videos.empty
   files:
     label: panel.sections.files.label
     type: files
+    layout: table
+    search: true
     template: default
 

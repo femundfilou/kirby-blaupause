@@ -28,25 +28,7 @@ fields:
       - value: h6
         icon: h6
         text: H6
-  alignment:
-    label: panel.blocks.heading.fields.alignment.label
-    type: toggles
-    grow: false
-    default: "left"
-    empty: false
-    options:
-      - value: "left"
-        text:
-          *: panel.blocks.heading.fields.alignment.options.left.text
-        icon: text-left
-      - value: "centered"
-        text:
-          *: panel.blocks.heading.fields.alignment.options.centered.text
-        icon: text-center
-      - value: "right"
-        text:
-          *: panel.blocks.heading.fields.alignment.options.right.text
-        icon: text-right
+  alignment: fields/alignment
   style:
     label: panel.blocks.heading.fields.style.label
     type: toggles

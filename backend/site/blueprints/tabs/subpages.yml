@@ -1,0 +1,11 @@
+icon: page
+label: panel.tabs.subpages.label
+sections:
+  subpages:
+    label: panel.sections.subpages.label
+    type: pages
+    layout: table
+    search: true
+    template: subpage
+    image: false
+

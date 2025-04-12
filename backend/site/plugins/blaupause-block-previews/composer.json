@@ -3,14 +3,18 @@
     "description": "Custom block previews for blocks used in Kirby Blaupause.",
     "license": "MIT",
     "type": "kirby-plugin",
-    "version": "0.0.0",
     "authors": [
         {
             "name": "Justus Kraft",
-            "email": "justus@femundfilou.com"
+            "email": "justus@femundfilou.de"
         }
     ],
     "require": {
         "getkirby/composer-installer": "^1.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "getkirby/composer-installer": true
+        }
     }
 }

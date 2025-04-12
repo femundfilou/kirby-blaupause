@@ -64,21 +64,4 @@ fields:
     after: px
     width: 1/4
     min: 0
-  alignment:
-    label: panel.blocks.image.fields.alignment.label
-    type: toggles
-    grow: false
-    default: 'left'
-    options:
-      - value: left
-        text:
-          *: panel.blocks.image.fields.alignment.options.left.text
-        icon: text-left
-      - value: centered
-        text:
-          *: panel.blocks.image.fields.alignment.options.centered.text
-        icon: text-center
-      - value: right
-        text:
-          *: panel.blocks.image.fields.alignment.options.right.text
-        icon: text-right
+  alignment: fields/alignment

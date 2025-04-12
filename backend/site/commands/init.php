@@ -12,19 +12,6 @@ return [
 		$name = $cli->prompt('Please enter a name for your project (preferably the final domain):');
 		$projectRoot = dirname(kirby()->root());
 
-		// Rename storage folder
-		$input = $cli->confirm('Rename storage folder?');
-		if ($input->confirmed()) {
-			if (Dir::exists(dirname(kirby()->root()) . "/storage/kirby-blaupause.test")) {
-				Dir::move($projectRoot . "/storage/kirby-blaupause.test", $projectRoot . "/storage/" . $name);
-				$cli->out("Moved storage folder.");
-			}
-			$index = F::read($projectRoot . "/public/index.php");
-			$index = Str::replace($index, "kirby-blaupause.test", $name);
-			F::write($projectRoot . "/public/index.php", $index);
-			$cli->out("Renamed storage folder in public/index.php");
-		}
-
 		// Update composer.json
 		$input = $cli->confirm('Rename project in composer.json?');
 		if ($input->confirmed()) {

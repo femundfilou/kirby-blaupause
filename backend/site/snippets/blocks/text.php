@@ -13,6 +13,6 @@ $style = $styles[$styleValue] ?? $styles['default'];
 $alignment = $block->alignment()->value() ?? 'left';
 
 ?>
-<div class="text <?= $style ?> <?= "has-text-" . $alignment ?>">
-	<?= $block->text(); ?>
+<div class="text <?= $style ?> <?= "has-text-" . $alignment ?>" data-animation="fade-in-up">
+	<?= $block->text()->permalinksToUrls(); ?>
 </div>

@@ -1,3 +1,9 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Default settings for all files
 [*]
 charset = utf-8
 indent_style = tab
@@ -5,13 +11,34 @@ indent_size = 2
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+max_line_length = 120
 
+# Markdown files - don't trim trailing whitespace (it's meaningful in Markdown)
 [*.md]
 trim_trailing_whitespace = false
 
-[package.json,.{babelrc,editorconfig,eslintrc,lintstagedrc,stylelintrc}]
+# JSON configuration files (use spaces for better compatibility)
+[package.json,package-lock.json,*.{babelrc,editorconfig,eslintrc,lintstagedrc,stylelintrc}]
 indent_style = space
 indent_size = 2
 
+# JSON files that should follow Biome formatting
+[biome.json,tsconfig.json]
+indent_style = tab
+indent_size = 2
+
+# YAML files always use spaces
 [*.{yml,yaml}]
 indent_style = space
+indent_size = 2
+
+# JavaScript/TypeScript files - follow Biome settings
+[*.{js,jsx,ts,tsx,mjs,cjs}]
+indent_style = tab
+indent_size = 2
+max_line_length = 120
+
+# HTML/CSS/SCSS files
+[*.{html,css,scss,sass}]
+indent_style = tab
+indent_size = 2

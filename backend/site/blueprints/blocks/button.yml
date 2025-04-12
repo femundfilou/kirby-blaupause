@@ -7,25 +7,7 @@ fields:
   link:
     type: link
     required: true
-  alignment:
-    label: panel.blocks.button.fields.alignment.label
-    type: toggles
-    grow: false
-    default: "left"
-    empty: false
-    options:
-      - value: "left"
-        text:
-          *: panel.blocks.button.fields.alignment.options.left.text
-        icon: text-left
-      - value: "centered"
-        text:
-          *: panel.blocks.button.fields.alignment.options.centered.text
-        icon: text-center
-      - value: "right"
-        text:
-          *: panel.blocks.button.fields.alignment.options.right.text
-        icon: text-right
+  alignment: fields/alignment
   style:
     label: panel.blocks.button.fields.style.label
     type: toggles

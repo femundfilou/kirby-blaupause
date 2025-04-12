@@ -4,33 +4,10 @@ tabs:
     label: panel.site.tabs.dashboard.label
     icon: dashboard
     sections:
-      mainnavigation:
-        label: panel.site.sections.mainmenu.label
-        type: pages
-        layout: cards
-        text: '{{ page.title }}'
-        info: '/{{ page.isHomePage() ? "" : page.uid}}'
-        status: listed
-        image: false
-      settings:
-        type: fields
-        fields:
-          footermenu:
-            label: panel.site.fields.footermenu.label
-            type: pages
-            width: 1/2
-            image: false
-          privacypage:
-            label: panel.site.fields.privacypage.label
-            type: pages
-            max: 1
-            width: 1/2
-            image: false
       pages:
         label: panel.site.sections.pages.label
         type: pages
-        status: unlisted
-        sortBy: title
+        status: published
         template:
           - home
           - default
@@ -45,5 +22,21 @@ tabs:
         template:
           - default
         image: false
+  headerfooter:
+    label:  panel.site.tabs.headerfooter.label
+    icon: header-footer
+    sections:
+      fields:
+        type: fields
+        fields:
+          mainmenu:
+            label: panel.site.fields.mainmenu.label
+            type: pages
+            width: 1/2
+            image: false
+          footermenu:
+            label: panel.site.fields.footermenu.label
+            type: pages
+            width: 1/2
+            image: false
   seo: seo/site
-  files: tabs/files

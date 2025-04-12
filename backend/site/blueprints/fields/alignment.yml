@@ -1,0 +1,18 @@
+label: panel.fields.alignment.label
+type: toggles
+grow: false
+default: "left"
+empty: false
+options:
+  - value: "left"
+    text:
+      *: panel.fields.alignment.options.left.text
+    icon: text-left
+  - value: "center"
+    text:
+      *: panel.fields.alignment.options.center.text
+    icon: text-center
+  - value: "right"
+    text:
+      *: panel.fields.alignment.options.right.text
+    icon: text-right

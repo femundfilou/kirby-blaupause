@@ -1,40 +1,42 @@
 {
-  "name": "femundfilou/kirby-blaupause",
-  "description": "Kirby Blaupause: A Starter Template",
-  "type": "project",
-  "authors": [
-    {
-      "name": "Justus Kraft",
-      "email": "justus@femundfilou.de",
-      "homepage": "https://femundfilou.de"
-    }
-  ],
-  "homepage": "https://femundfilou.de",
-  "require": {
-    "php": ">=8.0.0 <=8.4",
-    "getkirby/cms": "^4.5",
-    "lukaskleinschmidt/kirby-laravel-vite": "^2.1",
-    "femundfilou/kirby-asset-manager": "^1.0",
-    "tobimori/kirby-seo": "^1.1",
-    "getkirby/staticache": "^1.0",
-    "getkirby/cli": "^1.5",
-    "distantnative/retour-for-kirby": "^5.3",
-    "femundfilou/kirby-image-snippet": "^0.2.3",
-    "genxbe/kirby3-ray": "^2.0",
-    "johannschopplich/kirby-plausible": "^0.5.0",
-    "bnomei/kirby3-dotenv": "^5.0"
-  },
-  "minimum-stability": "beta",
+	"name": "femundfilou/kirby-blaupause",
+	"description": "Kirby Blaupause: A Starter Template",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Justus Kraft",
+			"email": "justus@femundfilou.de",
+			"homepage": "https://femundfilou.de"
+		}
+	],
+	"homepage": "https://femundfilou.de",
+	"require": {
+		"php": ">=8.0.0 <=8.4",
+		"getkirby/cms": "^4.5",
+		"lukaskleinschmidt/kirby-laravel-vite": "^2.1",
+		"femundfilou/kirby-asset-manager": "^1.0",
+		"tobimori/kirby-seo": "^1.1",
+		"getkirby/staticache": "^1.0",
+		"getkirby/cli": "^1.5",
+		"distantnative/retour-for-kirby": "^5.3",
+		"femundfilou/kirby-image-snippet": "^0.2.3",
+		"genxbe/kirby3-ray": "^2.0",
+		"johannschopplich/kirby-plausible": "^0.5.0",
+		"bnomei/kirby3-dotenv": "^5.0",
+		"timnarr/kirby-obfuscate-email": "^0.1.0",
+		"junohamburg/kirby-visual-block-selector": "^2.1"
+	},
+	"minimum-stability": "beta",
 	"prefer-stable": true,
-  "config": {
-    "vendor-dir": "backend/vendor",
-    "allow-plugins": {
-      "getkirby/composer-installer": true
-    },
-    "optimize-autoloader": true
-  },
-  "extra": {
-    "kirby-cms-path": "backend/kirby",
-    "kirby-plugin-path": "backend/site/plugins"
-  }
+	"config": {
+		"vendor-dir": "backend/vendor",
+		"allow-plugins": {
+			"getkirby/composer-installer": true
+		},
+		"optimize-autoloader": true
+	},
+	"extra": {
+		"kirby-cms-path": "backend/kirby",
+		"kirby-plugin-path": "backend/site/plugins"
+	}
 }

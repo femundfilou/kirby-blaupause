@@ -1,0 +1,19 @@
+title: panel.page.template.default.label
+options: permissions/default
+status:
+  draft: panel.page.status.draft.label
+  unlisted: panel.page.status.unlisted.label
+  listed: panel.page.status.listed.label
+tabs:
+  content:
+    icon: text
+    label: panel.tabs.content.label
+    sections:
+      contentfields:
+        type: fields
+        fields:
+          hero: fields/hero
+          main:
+            extends: fields/layouts
+  files: tabs/files
+  seo: seo/page

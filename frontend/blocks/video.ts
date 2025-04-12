@@ -69,7 +69,7 @@ class PrivacyVideo extends HTMLElement {
 	 * Get the video ID from the source URL
 	 */
 	private getVideoId(): string {
-		const id = this.src?.match(/[\dA-z]{11}(?=(&|\?|$))/)
+		const id = this.src?.match(/[-_\dA-Za-z]{11}(?=(&|\?|$))/)
 		if (!id) throw new Error("Video id not found.")
 		return id[0]
 	}

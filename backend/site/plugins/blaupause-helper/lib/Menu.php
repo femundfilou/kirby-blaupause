@@ -2,7 +2,6 @@
 
 namespace Femundfilou\Menu;
 
-use Closure;
 use Kirby\Cms\App;
 use Kirby\Toolkit\Str;
 
@@ -17,7 +16,7 @@ class Menu
 		return static::$path ??= App::instance()->request()->path()->toString();
 	}
 
-	public static function page(string $label, string $icon = null, string $link = null, Closure|bool $current = null): array
+	public static function page(string $label, string|null $icon, string|null $link): array
 	{
 
 		$panelLink = Str::startsWith($link, 'page://') ? page($link)->panel()->url(true) : $link;
@@ -26,8 +25,7 @@ class Menu
 			'label'   => $label,
 			'link'    => $panelLink,
 			'icon'    => $icon,
-			'current' => $current ?? fn() =>
-			str_contains(static::path(), $panelLink)
+			'current' => str_contains(static::path(), $panelLink)
 		];
 	}
 
@@ -36,7 +34,7 @@ class Menu
 		return [
 			'label'   => $label,
 			'icon'    => $icon,
-			'current' => function (string $id = null) {
+			'current' => function (string|null $id) {
 				if ($id !== 'site') {
 					return false;
 				}

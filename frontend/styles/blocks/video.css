@@ -1,15 +1,10 @@
-@import url("../variables/_breakpoints.css");
+@import "../variables/_media-queries.css";
 
 .block-type-video {
 	position: relative;
 
 	& figure {
 		aspect-ratio: var(--aspect-ratio);
-		margin-block: var(--clea-size-4);
-
-		@media (--desktop) {
-			margin-block: var(--clea-size-1);
-		}
 
 		& video,
 		& iframe {
@@ -22,9 +17,17 @@
 		}
 
 		& figcaption {
-			padding: var(--clea-size-7) var(--clea-size-6) 0 var(--clea-size-6);
-			font-family: var(--clea-font-family);
+			padding: var(--font-size-7) var(--font-size-6) 0 var(--font-size-6);
+			font-family: var(--font-family);
+			margin: 0;
 		}
+	}
+
+	& privacy-video {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: relative;
 	}
 
 	& .privacy-overlay {
@@ -44,7 +47,7 @@
 			z-index: 2;
 
 			& img {
-				border-radius: var(--clea-border-radius);
+				border-radius: var(--border-radius);
 				position: absolute;
 				width: 100%;
 				height: 100%;
@@ -57,17 +60,28 @@
 			grid-column: 1 / -1;
 			display: flex;
 			align-items: center;
-			justify-content: center;
+			justify-content: flex-end;
 			flex-direction: column;
 			z-index: 3;
-			padding: 1.5em;
+			padding: var(--space-m);
 
 			& .privacy-overlay__content__inner {
-				border-radius: var(--clea-border-radius);
-				color: var(--clea-base-color-invert);
-				background-color: var(--clea-base-color);
-				padding: 2em;
+				border-radius: var(--border-radius);
+				color: var(--color-base);
+				background-color: var(--color-base-background);
+				padding: var(--space-s) var(--space-s-m);
 				text-align: center;
+				flex-wrap: wrap;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: var(--space-xs);
+				align-items: center;
+				width: 100%;
+
+				@media (--m) {
+					justify-content: space-between;
+				}
 			}
 		}
 	}

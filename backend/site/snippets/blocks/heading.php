@@ -2,7 +2,7 @@
 
 /**
  *  @var \Kirby\Cms\Block $block
- * 
+ *
  */
 
 
@@ -15,9 +15,19 @@ $styles = [
 	'h6' => 'has-size-6',
 ];
 
+$alignments = [
+	'default' => '',
+	'left' => 'has-text-left',
+	'center' => 'has-text-center',
+	'right' => 'has-text-right',
+];
+
+
 $styleValue = $block->style()->value();
 $style = $styles[$styleValue] ?? $styles['h2'];
-$alignment = $block->alignment()->value() ?? 'left';
+
+$alignmentValue = $block->alignment()->value() ?? 'default';
+$alignment = $alignments[$alignmentValue] ?? $alignments['default'];
 
 ?>
-<<?= $level = $block->level()->or('h2') ?> class="<?= $style ?> <?= "has-text-" . $alignment ?>"><?= $block->text() ?></<?= $level ?>>
+<<?= $level = $block->level()->or('h2') ?> class="title <?= $style ?> <?= $alignment ?>"><?= $block->text()->convertShy() ?></<?= $level ?>>

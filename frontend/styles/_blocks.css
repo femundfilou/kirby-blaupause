@@ -1,3 +1,6 @@
-.block + .block {
-	margin-top: var(--clea-gap);
+.flow {
+	>.block {
+		width: 100%;
+		flex: 1 1 100%;
+	}
 }

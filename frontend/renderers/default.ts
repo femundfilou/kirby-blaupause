@@ -9,6 +9,14 @@ export default class extends Renderer {
 		ScrollAnimations.getInstance()
 		new SplitWords()
 	}
+
+	onEnter(): void {
+		// Update template dataset
+		const page = this.page as Document
+		const newTemplate = page.body.dataset.template
+		document.body.dataset.template = newTemplate
+	}
+
 	onLeaveCompleted(): void {
 		this.remove()
 	}

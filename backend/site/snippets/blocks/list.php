@@ -13,5 +13,5 @@ $style = $styles[$styleValue] ?? $styles['default'];
 
 ?>
 <div class="text <?= $style ?>">
-	<?= $block->text(); ?>
+	<?= $block->text()->addListAnimation(); ?>
 </div>

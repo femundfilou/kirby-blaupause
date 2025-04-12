@@ -1,5 +1,12 @@
 <?php
 return [
+	[
+		"pattern" => "/globalmedia",
+		"method" => "GET",
+		"action" => function () {
+			return;
+		}
+	]
 	/*
 	* Route for translations
 	* Intended to be used with svelte-i18n
@@ -21,4 +28,5 @@ return [
 				);
 			}
 		},
-	]**/];
+	]**/
+];
