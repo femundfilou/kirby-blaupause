@@ -102,7 +102,7 @@ Kirby\Cms\App::plugin('femundfilou/blaupause-helper', [
 				'none' => 'has-gap-collapse',
 				'small' => 'has-mt-l',
 				'medium' => 'has-mt-2xl-3xl',
-				'large' => 'has-mt-2xl-4xl'
+				'large' => 'has-mt-xl-4xl'
 			];
 
 			if ($this->spacetop()->isNotEmpty()) {
@@ -120,7 +120,7 @@ Kirby\Cms\App::plugin('femundfilou/blaupause-helper', [
 				'none' => '',
 				'small' => 'has-mb-l',
 				'medium' => 'has-mb-2xl-3xl',
-				'large' => 'has-mb-2xl-4xl'
+				'large' => 'has-mb-xl-4xl'
 			];
 
 			if ($this->spacebottom()->isNotEmpty()) {
