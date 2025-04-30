@@ -10,7 +10,7 @@ tabs:
         status: published
         template:
           - home
-          - default
+          - page
           - error
           - thanks
         image: false
@@ -20,7 +20,7 @@ tabs:
         status: draft
         sortBy: title
         template:
-          - default
+          - page
         image: false
   headerfooter:
     label:  panel.site.tabs.headerfooter.label

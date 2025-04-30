@@ -23,9 +23,11 @@ panel.page.status.unlisted.label: Veröffentlicht
 panel.page.status.listed.label: Veröffentlicht & im Menü
 
 # Templates
-panel.page.template.default.label: Standard-Seite
+panel.page.template.page.label: Standard-Seite
 panel.page.template.subpage.label: Unterseite
 panel.page.template.media.label: Media
+panel.page.template.error.label: Fehlerseite
+panel.page.template.home.label: Startseite
 
 # Tabs
 panel.tabs.content.label: Inhalte
